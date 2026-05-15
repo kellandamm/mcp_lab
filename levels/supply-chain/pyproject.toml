@@ -1,0 +1,20 @@
+[project]
+name = "module5-supply-chain"
+version = "0.1.0"
+description = "Module 5: Supply Chain Security - MCP Security Workshop"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastmcp>=3.2.0",
+    "mcp>=1.0.0",
+    "pip-audit>=2.7.0",
+    "python-dotenv>=1.2.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.1.0",
+]
+
+[dependency-groups]
+dev = []

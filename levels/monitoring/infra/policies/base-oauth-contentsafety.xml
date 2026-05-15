@@ -1,0 +1,84 @@
+<!--
+    APIM Policy: Base OAuth + Content Safety (Layer 1 Only)
+    
+    This policy is the initial state before Camp 4 fixes are applied.
+    It includes:
+    - OAuth 2.0 validation (from Camp 1)
+    - Prompt Shields via policy fragment (Layer 1)
+    
+    What's MISSING (vulnerable):
+    - Advanced injection pattern detection (Layer 2 input)
+    - PII redaction in responses (Layer 2 output)
+    - Credential scanning (Layer 2 output)
+-->
+<policies>
+    <inbound>
+        <base />
+        
+        <!-- W3C Trace Context Propagation for Distributed Tracing -->
+        <set-header name="traceparent" exists-action="skip">
+            <value>@{
+                var traceId = context.RequestId.ToString("N");
+                var spanId = Guid.NewGuid().ToString("N").Substring(0, 16);
+                return $"00-{traceId}-{spanId}-01";
+            }</value>
+        </set-header>
+        <set-header name="tracestate" exists-action="skip">
+            <value>@($"apim={context.Deployment.ServiceName}")</value>
+        </set-header>
+        
+        <!-- OAuth 2.0 Validation using Entra ID -->
+        <validate-azure-ad-token tenant-id="{{tenant-id}}" 
+                                  failed-validation-httpcode="401" 
+                                  failed-validation-error-message="Unauthorized">
+            <audiences>
+                <audience>{{mcp-app-client-id}}</audience>
+            </audiences>
+            <required-claims>
+                <!-- Ensure token has the mcp.access scope for MCP access -->
+                <claim name="scp" match="any">
+                    <value>mcp.access</value>
+                </claim>
+            </required-claims>
+        </validate-azure-ad-token>
+
+        <!-- Layer 1: Prompt Shields via Policy Fragment -->
+        <include-fragment fragment-id="mcp-content-safety" />
+        
+        <!-- NOTE: No Layer 2 input validation - advanced injections bypass Content Safety! -->
+    </inbound>
+    
+    <backend>
+        <forward-request />
+    </backend>
+    
+    <outbound>
+        <base />
+        <!-- NOTE: No output sanitization - PII and credentials leak through! -->
+    </outbound>
+    
+    <on-error>
+        <base />
+        <choose>
+            <when condition="@(context.Response.StatusCode == 401)">
+                <return-response>
+                    <set-status code="401" reason="Unauthorized" />
+                    <!-- APIM native MCP type auto-prepends API path to resource_metadata URLs in WWW-Authenticate -->
+                    <set-header name="WWW-Authenticate" exists-action="override">
+                        <value>Bearer error="invalid_token", resource_metadata="{{apim-gateway-url}}/.well-known/oauth-protected-resource"</value>
+                    </set-header>
+                    <set-body>@{
+                        var gatewayUrl = "{{apim-gateway-url}}";
+                        var apiPath = context.Api.Path.TrimStart('/');
+                        var prmUrl = gatewayUrl + "/" + apiPath + "/.well-known/oauth-protected-resource";
+                        return JsonConvert.SerializeObject(new {
+                            error = "unauthorized",
+                            message = "Valid OAuth token required",
+                            resource_metadata = prmUrl
+                        });
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+    </on-error>
+</policies>

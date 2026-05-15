@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+name: Workshop-gateway
+metadata:
+  template: Workshop-mcp-security-workshop@1.0.0
+
+services:
+  Workshop-mcp-server:
+    project: ./servers/Workshop-mcp-server
+    language: python
+    host: containerapp
+  
+  Path-api:
+    project: ./servers/Path-api
+    language: python
+    host: containerapp
+
+infra:
+  provider: bicep
+  path: infra
+  module: main
+
+hooks:
+  preprovision:
+    posix:
+      shell: sh
+      run: ./scripts/hooks/preprovision.sh
+      continueOnError: false
+    windows:
+      shell: pwsh
+      run: ./scripts/hooks/preprovision.ps1
+      continueOnError: false
+  
+  postprovision:
+    posix:
+      shell: sh
+      run: ./scripts/hooks/postprovision.sh
+      continueOnError: false
+    windows:
+      shell: pwsh
+      run: ./scripts/hooks/postprovision.ps1
+      continueOnError: false

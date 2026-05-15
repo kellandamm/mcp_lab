@@ -1,0 +1,134 @@
+<!--
+    APIM Policy: Full I/O Security for Workshop MCP Server
+    
+    This policy is for REAL MCP servers (proxied through APIM).
+    
+    Includes:
+    - OAuth 2.0 validation (Entra ID)
+    - Layer 1: Content Safety with Prompt Shields (via policy fragment)
+    - Layer 2: Azure Function input_check (injection detection)
+    
+    NOTE: Output sanitization (PII redaction) is handled SERVER-SIDE by the MCP server itself.
+    This avoids issues with Streamable HTTP transport where responses arrive as SSE events.
+    The Workshop-mcp-server calls the sanitize-output Function directly via managed identity.
+    
+    Key learnings:
+    - APIM native MCP type auto-prepends API path to resource_metadata URLs in WWW-Authenticate
+      (so omit the path in the header value, but include it in the body)
+    - Content safety uses a reusable policy fragment for Prompt Shields integration
+-->
+<policies>
+    <inbound>
+        <base />
+        
+        <!-- OAuth 2.0 Validation using Entra ID -->
+        <validate-azure-ad-token tenant-id="{{tenant-id}}" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized">
+            <audiences>
+                <audience>{{mcp-app-client-id}}</audience>
+            </audiences>
+            <required-claims>
+                <!-- Ensure token has the mcp.access scope for MCP access -->
+                <claim name="scp" match="any">
+                    <value>mcp.access</value>
+                </claim>
+            </required-claims>
+        </validate-azure-ad-token>
+
+        <!-- Layer 1: Content Safety with Prompt Shields (reusable fragment) -->
+        <include-fragment fragment-id="mcp-content-safety" />
+
+        <!-- Layer 2: Advanced Input Check (Azure Function) -->
+        <send-request mode="new" response-variable-name="inputCheck" timeout="5" ignore-error="false">
+            <set-url>{{function-app-url}}/api/input-check</set-url>
+            <set-method>POST</set-method>
+            <set-header name="Content-Type" exists-action="override">
+                <value>application/json</value>
+            </set-header>
+            <set-body>@(context.Request.Body.As<string>(preserveContent: true))</set-body>
+        </send-request>
+
+        <!-- Check if function call succeeded -->
+        <choose>
+            <when condition="@(((IResponse)context.Variables["inputCheck"]).StatusCode != 200)">
+                <return-response>
+                    <set-status code="500" reason="Security Check Unavailable" />
+                    <set-header name="Content-Type" exists-action="override">
+                        <value>application/json</value>
+                    </set-header>
+                    <set-body>@{
+                        return new JObject(
+                            new JProperty("error", "Security check service unavailable"),
+                            new JProperty("code", "SECURITY_CHECK_FAILED")
+                        ).ToString();
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+
+        <!-- Parse the successful response and check if allowed -->
+        <set-variable name="inputCheckBody" value="@(((IResponse)context.Variables["inputCheck"]).Body.As<JObject>(preserveContent: true))" />
+        
+        <choose>
+            <when condition="@(!((JObject)context.Variables["inputCheckBody"])["allowed"].Value<bool>())">
+                <return-response>
+                    <set-status code="400" reason="Security Check Failed" />
+                    <set-header name="Content-Type" exists-action="override">
+                        <value>application/json</value>
+                    </set-header>
+                    <set-body>@{
+                        var result = (JObject)context.Variables["inputCheckBody"];
+                        return new JObject(
+                            new JProperty("error", "Request blocked by security filter"),
+                            new JProperty("reason", result["reason"]?.ToString() ?? "Unknown"),
+                            new JProperty("category", result["category"]?.ToString() ?? "Unknown")
+                        ).ToString();
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+    </inbound>
+    
+    <backend>
+        <base />
+    </backend>
+    
+    <outbound>
+        <base />
+        <!-- 
+            Output sanitization is handled SERVER-SIDE by the MCP server.
+            
+            Why not APIM outbound?
+            - Streamable HTTP transport uses text/event-stream Content-Type
+            - FastMCP returns complete responses as SSE events, not raw JSON
+            - APIM cannot reliably intercept/modify SSE event payloads
+            
+            The Workshop-mcp-server calls the sanitize-output Azure Function directly
+            using managed identity, applying PII redaction before streaming the response.
+        -->
+    </outbound>
+    
+    <on-error>
+        <base />
+        <choose>
+            <when condition="@(context.Response.StatusCode == 401)">
+                <return-response>
+                    <set-status code="401" reason="Unauthorized" />
+                    <!-- APIM native MCP type auto-prepends API path to resource_metadata URLs in WWW-Authenticate -->
+                    <set-header name="WWW-Authenticate" exists-action="override">
+                        <value>Bearer error="invalid_token", resource_metadata="{{apim-gateway-url}}/.well-known/oauth-protected-resource"</value>
+                    </set-header>
+                    <set-body>@{
+                        var gatewayUrl = "{{apim-gateway-url}}";
+                        var apiPath = context.Api.Path.TrimStart('/');
+                        var prmUrl = gatewayUrl + "/" + apiPath + "/.well-known/oauth-protected-resource";
+                        return JsonConvert.SerializeObject(new {
+                            error = "unauthorized",
+                            message = "Valid OAuth token required",
+                            resource_metadata = prmUrl
+                        });
+                    }</set-body>
+                </return-response>
+            </when>
+        </choose>
+    </on-error>
+</policies>

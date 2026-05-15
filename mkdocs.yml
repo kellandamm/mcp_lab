@@ -1,0 +1,136 @@
+site_name: MCP Security Workshop
+site_url: https://azure-samples.github.io/Workshop
+site_description: A Workshop's Guide to Securing Model Context Protocol Servers in Azure
+site_author: Microsoft Azure Samples
+repo_name: Azure-Samples/Workshop
+repo_url: https://github.com/Azure-Samples/Workshop
+edit_uri: edit/main/
+
+# Copyright
+copyright: Copyright &copy; 2025 Microsoft Corporation
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: Workshop-icon.png
+  favicon: Workshop-icon.png
+  language: en
+  palette:
+    # Light mode
+    - scheme: default
+      primary: blue-grey
+      accent: blue-grey
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: blue-grey
+      accent: blue-grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+# Navigation
+nav:
+  - Home: index.md
+  - Prerequisites: prerequisites.md
+  - Workshop Modules:
+    - Module 0 - Foundations: modules/base-module.md
+    - Module 1 - Identity: modules/module1-identity.md
+    - Module 2 - Gateway:
+      - "Overview & Deploy": modules/gateway/index.md
+      - Gateway & Authentication: modules/gateway/section1-gateway-governance.md
+      - API Governance: modules/gateway/api-governance.md
+      - Content Safety: modules/gateway/section2-content-safety.md
+      - Network Security: modules/gateway/section3-network-security.md
+    - Module 3 - I/O Security:
+      - "Overview & Deploy": modules/io-security/index.md
+      - Understand Vulnerabilities: modules/io-security/section1-vulnerabilities.md
+      - Layer 2 Security: modules/io-security/section2-layer2-security.md
+      - Validate & Key Learnings: modules/io-security/section3-validation.md
+    - Module 4 - Monitoring:
+      - "Overview & Deploy": modules/monitoring/index.md
+      - Gateway Logging: modules/monitoring/section1-apim-logging.md
+      - Function Observability: modules/monitoring/section2-function-observability.md
+      - Dashboards & Alerts: modules/monitoring/section3-dashboards-alerts.md
+      - Incident Response: modules/monitoring/section4-incident-response.md
+      - Production Deployment: modules/monitoring/production-deploy.md
+      - Reference: modules/monitoring/reference.md
+    - Module 5 - Supply Chain: modules/module5-supply-chain.md
+    - Summary: modules/summit.md
+  - Resources:
+    - Contributing: resources/contributing.md
+    - Using Copilot as MCP Client: copilot-client.md
+
+# Plugins
+plugins:
+  - search
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Azure-Samples/Workshop
+    - icon: fontawesome/brands/microsoft
+      link: https://azure.microsoft.com
+  analytics:
+    provider: google
+    property: G-4X6V7HSB1J
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve by opening an issue.
+
+extra_css:
+  - stylesheets/extra.css

@@ -1,0 +1,75 @@
+<!--
+  OAuth + Rate Limiting policy
+  Validates tokens and applies rate limiting by subscription key
+  
+  Key learnings:
+  - APIM native MCP type auto-prepends API path to resource_metadata URLs in WWW-Authenticate
+    (so omit the path in the header value, but include it in the body)
+-->
+<policies>
+  <inbound>
+    <base />
+    <!-- Rate limit FIRST: 10 requests per minute per subscription key -->
+    <rate-limit-by-key calls="10" renewal-period="60" counter-key="@(context.Subscription.Id)" />
+    <!-- Then validate OAuth token -->
+    <validate-azure-ad-token tenant-id="{{tenant-id}}" 
+                              failed-validation-httpcode="401" 
+                              failed-validation-error-message="Unauthorized">
+      <audiences>
+        <!-- Use appId directly when identifierUris is empty -->
+        <audience>{{mcp-app-client-id}}</audience>
+      </audiences>
+      <required-claims>
+        <!-- Ensure token has the user_impersonate scope for MCP access -->
+        <claim name="scp" match="any">
+          <value>user_impersonate</value>
+        </claim>
+      </required-claims>
+    </validate-azure-ad-token>
+  </inbound>
+  <backend>
+    <forward-request />
+  </backend>
+  <outbound>
+    <base />
+  </outbound>
+  <on-error>
+    <base />
+    <choose>
+      <when condition="@(context.Response.StatusCode == 401)">
+        <return-response>
+          <set-status code="401" reason="Unauthorized" />
+          <!-- APIM native MCP type auto-prepends API path to resource_metadata URLs in WWW-Authenticate -->
+          <set-header name="WWW-Authenticate" exists-action="override">
+            <value>Bearer error="invalid_token", resource_metadata="{{apim-gateway-url}}/.well-known/oauth-protected-resource"</value>
+          </set-header>
+          <set-body>@{
+            var gatewayUrl = "{{apim-gateway-url}}";
+            var apiPath = context.Api.Path.TrimStart('/');
+            var prmUrl = gatewayUrl + "/" + apiPath + "/.well-known/oauth-protected-resource";
+            return JsonConvert.SerializeObject(new {
+              error = "unauthorized",
+              message = "Valid OAuth token required",
+              resource_metadata = prmUrl
+            });
+          }</set-body>
+        </return-response>
+      </when>
+      <when condition="@(context.Response.StatusCode == 429)">
+        <return-response>
+          <set-status code="429" reason="Too Many Requests" />
+          <set-header name="Retry-After" exists-action="override">
+            <value>60</value>
+          </set-header>
+          <set-body>@{
+            return JsonConvert.SerializeObject(new {
+              error = "rate_limit_exceeded",
+              message = "Too many requests. Please wait before retrying.",
+              retry_after = 60
+            });
+          }</set-body>
+        </return-response>
+      </when>
+    </choose>
+  </on-error>
+</policies>

@@ -1,0 +1,145 @@
+# ==============================================================================
+# PATHS MCP Server - HTTP Request Examples
+# ==============================================================================
+# Use with any HTTP client: REST Client, Postman, Insomnia, curl, etc.
+#
+# ⚠️  IMPORTANT: Set a 5-second timeout!
+# MCP uses Server-Sent Events (SSE) which keeps connections open.
+# Data arrives quickly (~1s) but the stream stays open. Set a timeout to close it.
+#
+# Timeout settings by tool:
+#   - VS Code REST Client: Add to settings.json:
+#       "rest-client.timeoutinmilliseconds": 5000
+#   - Postman: Settings > General > Request Timeout = 5000ms
+#   - Insomnia: Preferences > General > Timeout = 5000ms
+#   - curl: --max-time 5
+#
+# Before running:
+# 1. Update @baseUrl with your APIM gateway URL
+# 2. Update @token with a valid OAuth token:
+#    ./tests/get-mcp-token.sh
+#
+# Path MCP is APIM-synthesized (REST API exposed as MCP).
+# It uses client-generated session IDs - no initialize call needed.
+#
+# Available Tools:
+#   - list-PATHS              - List all available PATHS
+#   - get-Path(PathId)       - Get details for a specific Path
+#   - check-conditions(PathId) - Check Path conditions and hazards
+#   - get-permit(permitId)     - Get permit details by ID
+#   - get-permit-holder(permitId) - Get permit holder PII (demo data leakage)
+#   - request-permit(...)      - Request a new Path permit
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# Configuration - Update these values!
+# ------------------------------------------------------------------------------
+
+@baseUrl = YOUR-BASE-URL
+@mcpEndpoint = {{baseUrl}}/PATHS/mcp
+
+# Generate session ID (used for rate limiting/tracking)
+@sessionId = session-http-client-001
+
+# Get your token with:
+# az account get-access-token --resource "YOUR-APP-ID" --query accessToken -o tsv
+@token = YOUR-TOKEN
+
+# ==============================================================================
+# MCP Requests
+# ==============================================================================
+
+### 1. List Available Tools
+# Discover what tools the MCP server provides
+POST {{mcpEndpoint}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+Mcp-Session-Id: {{sessionId}}
+
+{
+    "jsonrpc": "2.0",
+    "method": "tools/list",
+    "id": 1
+}
+
+### 2. List PATHS
+# Get all available hiking PATHS
+POST {{mcpEndpoint}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+Mcp-Session-Id: {{sessionId}}
+
+{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+        "name": "list-PATHS",
+        "arguments": {}
+    },
+    "id": 2
+}
+
+### 3. Get Path Details
+# Get details for a specific Path
+# Valid PathIds: summit-Path, base-Path, ridge-walk
+POST {{mcpEndpoint}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+Mcp-Session-Id: {{sessionId}}
+
+{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+        "name": "get-Path",
+        "arguments": {
+            "PathId": "summit-Path"
+        }
+    },
+    "id": 3
+}
+
+### 4. Check Path Conditions
+# Get current conditions and hazards for a Path
+POST {{mcpEndpoint}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+Mcp-Session-Id: {{sessionId}}
+
+{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+        "name": "check-conditions",
+        "arguments": {
+            "PathId": "summit-Path"
+        }
+    },
+    "id": 4
+}
+
+### 5. Get Permit Details
+# Retrieve a Path permit by ID
+# Valid permitIds: Path-2024-001, Path-2024-002
+POST {{mcpEndpoint}}
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer {{token}}
+Mcp-Session-Id: {{sessionId}}
+
+{
+    "jsonrpc": "2.0",
+    "method": "tools/call",
+    "params": {
+        "name": "get-permit",
+        "arguments": {
+            "permitId": "Path-2024-001"
+        }
+    },
+    "id": 5
+}
+

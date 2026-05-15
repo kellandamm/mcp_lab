@@ -1,0 +1,32 @@
+name: Workshop-camp1-identity
+metadata:
+  template: Workshop-mcp-security-workshop@1.0.0
+
+hooks:
+  preprovision:
+    posix:
+      shell: sh
+      run: ./scripts/hooks/preprovision.sh
+      interactive: true
+      continueOnError: false
+    windows:
+      shell: pwsh
+      run: ./scripts/hooks/preprovision.ps1
+      interactive: true
+      continueOnError: false
+
+services:
+  vulnerable-server:
+    project: ./vulnerable-server
+    language: python
+    host: containerapp
+  
+  secure-server:
+    project: ./secure-server
+    language: python
+    host: containerapp
+
+infra:
+  provider: bicep
+  path: infra
+  module: main

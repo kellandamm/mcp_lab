@@ -1,0 +1,170 @@
+#!/bin/bash
+# Postprovision hook for Camp 4
+# Called automatically by azd after infrastructure deployment
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR/../.."
+
+echo ""
+echo "=========================================="
+echo "Post-provision Configuration"
+echo "=========================================="
+echo ""
+
+# Get deployment outputs from azd
+echo "Loading deployment outputs..."
+RG_NAME=$(azd env get-value AZURE_RESOURCE_GROUP)
+LOCATION=$(azd env get-value AZURE_LOCATION)
+ACR_NAME=$(azd env get-value AZURE_CONTAINER_REGISTRY_NAME)
+APIM_NAME=$(azd env get-value APIM_NAME)
+APIM_GATEWAY_URL=$(azd env get-value APIM_GATEWAY_URL)
+APIM_LOCATION=$(azd env get-value APIM_LOCATION)
+CONTENT_SAFETY_ENDPOINT=$(azd env get-value CONTENT_SAFETY_ENDPOINT)
+CONTENT_SAFETY_LOCATION=$(azd env get-value CONTENT_SAFETY_LOCATION)
+FUNCTION_APP_NAME=$(azd env get-value FUNCTION_APP_NAME)
+FUNCTION_APP_URL=$(azd env get-value FUNCTION_APP_URL)
+FUNCTION_APP_V1_URL=$(azd env get-value FUNCTION_APP_V1_URL)
+FUNCTION_APP_V2_URL=$(azd env get-value FUNCTION_APP_V2_URL)
+
+# Check deploy mode - "complete" deploys the fully-configured stack
+DEPLOY_MODE=$(azd env get-value DEPLOY_MODE 2>/dev/null || echo "")
+
+# In complete mode, APIM routes to v2 (structured logging) from the start
+if [ "$DEPLOY_MODE" = "complete" ]; then
+    ACTIVE_FUNCTION_URL="$FUNCTION_APP_V2_URL"
+    ACTIVE_LABEL="v2 (structured logging)"
+else
+    ACTIVE_FUNCTION_URL="$FUNCTION_APP_V1_URL"
+    ACTIVE_LABEL="v1 (basic logging)"
+fi
+Workshop_SERVER_URL=$(azd env get-value Workshop_SERVER_URL)
+Path_API_URL=$(azd env get-value Path_API_URL)
+
+# Show region adjustments if any
+if [ "$APIM_LOCATION" != "$LOCATION" ] || [ "$CONTENT_SAFETY_LOCATION" != "$LOCATION" ]; then
+    echo ""
+    echo "Region adjustments made for service availability:"
+    [ "$APIM_LOCATION" != "$LOCATION" ] && echo "  API Management: $LOCATION -> $APIM_LOCATION"
+    [ "$CONTENT_SAFETY_LOCATION" != "$LOCATION" ] && echo "  Content Safety: $LOCATION -> $CONTENT_SAFETY_LOCATION"
+fi
+
+# Load Entra ID app IDs from environment
+MCP_APP_CLIENT_ID=$(azd env get-value MCP_APP_CLIENT_ID)
+TENANT_ID=$(azd env get-value AZURE_TENANT_ID 2>/dev/null || az account show --query tenantId -o tsv)
+
+echo ""
+echo "Configuration:"
+echo "  Resource Group: $RG_NAME"
+echo "  ACR: $ACR_NAME"
+echo "  APIM: $APIM_NAME"
+echo "  Gateway URL: $APIM_GATEWAY_URL"
+echo "  Function v1: $FUNCTION_APP_V1_URL (basic logging)"
+echo "  Function v2: $FUNCTION_APP_V2_URL (structured logging)"
+echo "  Active:      $ACTIVE_LABEL"
+echo "  Function URL: $FUNCTION_APP_URL"
+echo "  Workshop Server: $Workshop_SERVER_URL"
+echo "  Path API: $Path_API_URL"
+echo "  Tenant ID: $TENANT_ID"
+echo "  MCP App Client ID: $MCP_APP_CLIENT_ID"
+echo ""
+
+# Configure APIM APIs and backends with full I/O security (Layer 1 + 2)
+echo "Configuring APIM APIs with full security..."
+az deployment group create \
+    --resource-group "$RG_NAME" \
+    --template-file infra/waypoints/initial-api-setup.bicep \
+    --parameters \
+        apimName="$APIM_NAME" \
+        WorkshopServerUrl="$Workshop_SERVER_URL" \
+        PathApiUrl="$Path_API_URL" \
+        contentSafetyEndpoint="$CONTENT_SAFETY_ENDPOINT" \
+        tenantId="$TENANT_ID" \
+        mcpAppClientId="$MCP_APP_CLIENT_ID" \
+        functionAppUrl="$ACTIVE_FUNCTION_URL" \
+        functionAppV1Url="$FUNCTION_APP_V1_URL" \
+        functionAppV2Url="$FUNCTION_APP_V2_URL" \
+    --output none
+
+echo "APIM APIs configured with Layer 1 + Layer 2 security"
+
+# Update Entra ID redirect URI with actual APIM gateway URL
+if [ -n "$MCP_APP_CLIENT_ID" ] && [ -n "$APIM_GATEWAY_URL" ]; then
+    echo "Updating Entra ID redirect URI..."
+    az ad app update --id "$MCP_APP_CLIENT_ID" \
+        --web-redirect-uris "$APIM_GATEWAY_URL/auth/callback" 2>/dev/null || \
+        echo "Note: Could not update redirect URI. You may need to update it manually."
+fi
+
+echo ""
+echo "========================================="
+echo "Post-provision Complete"
+echo "========================================="
+echo ""
+echo "Infrastructure deployed successfully!"
+echo ""
+echo "Camp 4: Monitoring & Telemetry"
+echo "=============================="
+echo ""
+
+if [ "$DEPLOY_MODE" = "complete" ]; then
+    echo "Deploy Mode: COMPLETE"
+    echo "  All monitoring resources are deployed and configured."
+    echo ""
+    echo "What's deployed:"
+    echo "  - APIM with full I/O security (Layer 1 + Layer 2)"
+    echo "  - Workshop MCP Server (Container App)"
+    echo "  - Path API with PII endpoint (Container App)"
+    echo "  - Security Function v2 (structured logging - ACTIVE)"
+    echo "  - Log Analytics workspace with APIM diagnostic logs"
+    echo "  - Application Insights (shared telemetry)"
+    echo "  - Security Monitoring Workbook (dashboard)"
+    echo "  - Action Group + Alert Rules (4 security alerts)"
+    echo ""
+    echo "Next steps:"
+    echo ""
+    echo "  1. Generate sample attack data:"
+    echo "     ./scripts/section4/4.1-simulate-attack.sh"
+    echo ""
+    echo "  2. View the security dashboard in the Azure Portal:"
+    echo "     Open the Workbook under your resource group"
+    echo ""
+else
+    echo "Deploy Mode: WORKSHOP (default)"
+    echo ""
+    echo "What's deployed:"
+    echo "  - APIM with full I/O security (Layer 1 + Layer 2)"
+    echo "  - Workshop MCP Server (Container App)"
+    echo "  - Path API with PII endpoint (Container App)"
+    echo "  - Security Function v1 (basic logging - ACTIVE)"
+    echo "  - Security Function v2 (structured logging - deployed, not active)"
+    echo "  - Log Analytics workspace (not yet connected to APIM)"
+    echo ""
+    echo "Security layers enabled:"
+    echo "  - Layer 1: OAuth + Content Safety (on MCP APIs)"
+    echo "  - Layer 2: Security Function v1 (input validation + output sanitization)"
+    echo ""
+    echo "The monitoring gap:"
+    echo "  - APIM diagnostic settings are NOT configured"
+    echo "  - Security Function v1 uses basic logging (can't be queried)"
+    echo "  - Security events are happening but NOT visible"
+    echo ""
+    echo "Workshop flow:"
+    echo "  Section 1: Enable APIM diagnostics (gateway logs)"
+    echo "  Section 2: Switch to Function v2 (structured application logs)"
+    echo "  Section 3: Create dashboard (visualize)"
+    echo "  Section 4: Set up alerts (actionable)"
+    echo ""
+    echo "Next steps:"
+    echo ""
+    echo "  1. Demonstrate the monitoring gap:"
+    echo "     ./scripts/section1/1.1-exploit.sh"
+    echo ""
+    echo "  2. Enable APIM diagnostics:"
+    echo "     ./scripts/section1/1.2-fix.sh"
+    echo ""
+    echo "  3. Validate logging is working:"
+    echo "     ./scripts/section1/1.3-validate.sh"
+    echo ""
+fi

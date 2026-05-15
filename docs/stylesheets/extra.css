@@ -1,0 +1,299 @@
+/* Custom styles for MCP Security Workshop */
+
+/* Theme colors */
+:root,
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #0f2027;
+  --md-primary-fg-color--light: #203a43;
+  --md-primary-fg-color--dark: #0a181d;
+  --md-accent-fg-color: #2c5364;
+}
+
+[data-md-color-primary="blue-grey"] {
+  --md-primary-fg-color: #2c5364;
+  --md-primary-fg-color--light: #346374;
+  --md-primary-fg-color--dark: #203a43;
+}
+
+/* ── Hero Banner ─────────────────────────────────────── */
+.hero-banner {
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 100%);
+  color: #fff;
+  margin: -1.2rem -0.8rem 2rem;
+  padding: 3rem 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.hero-banner-content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 2rem;
+  padding: 0.25rem 0.9rem;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.hero-banner-text h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin: 0 0 0.75rem;
+  color: #fff;
+  line-height: 1.15;
+}
+
+.hero-accent {
+  color: #5eead4;
+}
+
+.hero-banner-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin: 0 0 1.5rem;
+  max-width: 540px;
+}
+
+.hero-banner-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.hero-banner-buttons .md-button {
+  border-color: #fff;
+  color: #fff;
+}
+
+.hero-banner-buttons .md-button--primary {
+  background: #fff;
+  color: #203a43;
+  border-color: #fff;
+}
+
+.hero-banner-buttons .md-button--primary:hover {
+  background: rgba(255,255,255,0.9);
+}
+
+.hero-banner-buttons .md-button:not(.md-button--primary):hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.hero-banner-image img {
+  max-width: 280px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 768px) {
+  .hero-banner { padding: 2rem 1rem; }
+  .hero-banner-content { grid-template-columns: 1fr; text-align: center; }
+  .hero-banner-text h1 { font-size: 1.8rem; }
+  .hero-banner-text p { max-width: none; }
+  .hero-banner-buttons { justify-content: center; }
+  .hero-banner-image { order: -1; }
+  .hero-banner-image img { max-width: 200px; }
+}
+
+/* ── module Page Banners ───────────────────────────────── */
+.module-banner {
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 40%, #2c5364 100%);
+  color: #fff;
+  margin: -1.2rem -0.8rem 2rem;
+  padding: 2rem 2rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.module-banner-content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.module-banner-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 2rem;
+  padding: 0.2rem 0.8rem;
+  margin-bottom: 0.75rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.module-banner-text h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.module-banner-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+  max-width: 500px;
+}
+
+.module-banner-image img {
+  max-width: 220px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+
+.banner-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.banner-icon .material-icons {
+  font-size: 4rem;
+  color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 768px) {
+  .module-banner { padding: 1.5rem 1rem; }
+  .module-banner-content { grid-template-columns: 1fr; text-align: center; }
+  .module-banner-text h1 { font-size: 1.5rem; }
+  .module-banner-text p { max-width: none; }
+  .module-banner-image { order: -1; }
+  .module-banner-image img { max-width: 160px; }
+}
+
+/* ── module Cards (APIM Samples style) ─────────────────── */
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 4px solid var(--md-accent-fg-color);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.25rem 1rem;
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  background: var(--md-default-bg-color);
+}
+
+.module-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--md-default-fg-color);
+}
+
+.module-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.module-card-header strong {
+  font-size: 1.05rem;
+  color: var(--md-primary-fg-color);
+}
+
+.module-icon .material-icons {
+  font-size: 1.3rem;
+  color: var(--md-accent-fg-color);
+}
+
+.module-card p {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+  flex: 1;
+}
+
+.module-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--md-default-fg-color--lighter);
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 960px) {
+  .module-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .module-cards { grid-template-columns: 1fr; }
+}
+
+/* ── Workshop map ────────────────────────────────────── */
+.expedition-map {
+  max-width: 720px;
+  display: block;
+  margin: 1rem auto 0;
+}
+
+/* Enhance code blocks */
+.highlight pre {
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Callout boxes styling */
+.admonition {
+  border-radius: 8px;
+  margin: 1.5em 0;
+}
+
+/* Workshop phase headers */
+h2[id^="phase"] {
+  color: var(--md-primary-fg-color);
+  border-left: 4px solid var(--md-accent-fg-color);
+  padding-left: 1rem;
+  margin-top: 2rem;
+}
+
+/* Table styling for route maps */
+table {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Mountain emoji spacing */
+.twemoji {
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
