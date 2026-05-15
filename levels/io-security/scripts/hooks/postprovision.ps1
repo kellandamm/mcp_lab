@@ -1,4 +1,4 @@
-# Postprovision hook for Camp 3
+# Postprovision hook for Module 3
 # Called automatically by azd after infrastructure deployment
 
 $ErrorActionPreference = 'Stop'
@@ -79,7 +79,7 @@ Write-Host "=========================================="
 Write-Host ""
 Write-Host "Infrastructure deployed successfully!"
 Write-Host ""
-Write-Host "Camp 3: I/O Security"
+Write-Host "Module 3: I/O Security"
 Write-Host "===================="
 Write-Host ""
 Write-Host "What's deployed:"

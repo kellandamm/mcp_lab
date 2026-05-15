@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🔧 Camp 1: Configure Secure Server"
+echo "🔧 Module 1: Configure Secure Server"
 echo "==================================="
 
 # Load azd environment variables

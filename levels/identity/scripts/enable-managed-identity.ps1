@@ -1,7 +1,7 @@
-# Camp 1: Enable Managed Identity
+# Module 1: Enable Managed Identity
 $ErrorActionPreference = 'Stop'
 
-Write-Host "Camp 1: Enable Managed Identity"
+Write-Host "Module 1: Enable Managed Identity"
 Write-Host "=================================="
 
 # Load azd environment variables

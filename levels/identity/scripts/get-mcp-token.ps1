@@ -1,7 +1,7 @@
-# Camp 1: Get MCP Token (Device Code Flow)
+# Module 1: Get MCP Token (Device Code Flow)
 $ErrorActionPreference = 'Stop'
 
-Write-Host "🎫 Camp 1: Get MCP Token (Device Code Flow)"
+Write-Host "🎫 Module 1: Get MCP Token (Device Code Flow)"
 Write-Host "==========================================="
 
 # Load azd environment variables

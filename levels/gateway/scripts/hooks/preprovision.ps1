@@ -1,11 +1,11 @@
-# Preprovision hook for Camp 2
+# Preprovision hook for Module 2
 # Creates Entra ID app registrations before infrastructure deployment
 
 $ErrorActionPreference = 'Stop'
 
 Write-Host ""
 Write-Host "=========================================="
-Write-Host "Camp 2: Entra ID App Registration"
+Write-Host "Module 2: Entra ID App Registration"
 Write-Host "=========================================="
 Write-Host ""
 
@@ -25,7 +25,7 @@ $TENANT_ID = az account show --query tenantId -o tsv
 Write-Host "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "camp2" }
+$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "Module 2" }
 $suffix = (Get-Date -UFormat %s).Substring((Get-Date -UFormat %s).Length - 4)
 $APP_SUFFIX = "$envName-$suffix"
 
@@ -36,9 +36,9 @@ $AZURE_CLI_APP_ID = "04b07795-8ddb-461a-bbee-02f9e1bf7b46"
 
 # Create MCP Resource App
 Write-Host ""
-Write-Host "Creating MCP Resource App: Workshop-mcp-client-camp2-$APP_SUFFIX"
+Write-Host "Creating MCP Resource App: Workshop-mcp-client-Module 2-$APP_SUFFIX"
 $MCP_APP_CLIENT_ID = az ad app create `
-    --display-name "Workshop-mcp-client-camp2-$APP_SUFFIX" `
+    --display-name "Workshop-mcp-client-Module 2-$APP_SUFFIX" `
     --sign-in-audience "AzureADMyOrg" `
     --query appId -o tsv
 
@@ -146,9 +146,9 @@ if ($LASTEXITCODE -ne 0) { Write-Host "Service principal already exists" }
 
 # Create APIM Client App
 Write-Host ""
-Write-Host "Creating APIM Client App: Workshop-apim-client-camp2-$APP_SUFFIX"
+Write-Host "Creating APIM Client App: Workshop-apim-client-Module 2-$APP_SUFFIX"
 $APIM_CLIENT_APP_ID = az ad app create `
-    --display-name "Workshop-apim-client-camp2-$APP_SUFFIX" `
+    --display-name "Workshop-apim-client-Module 2-$APP_SUFFIX" `
     --sign-in-audience "AzureADMyOrg" `
     --query appId -o tsv
 

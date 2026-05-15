@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 4.1: Simulate Multi-Vector Attack
+# Module 4 - Section 4.1: Simulate Multi-Vector Attack
 # =============================================================================
 # Pattern: hidden -> visible -> actionable
 # Final validation: Test the complete observability system
@@ -20,7 +20,7 @@ Set-Location (Join-Path $PSScriptRoot "..\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Red
-Write-Host "  [!] Camp 4 - Section 4.1: Attack Simulation" -ForegroundColor Red
+Write-Host "  [!] Module 4 - Section 4.1: Attack Simulation" -ForegroundColor Red
 Write-Host "  Pattern: hidden -> visible -> actionable" -ForegroundColor Red
 Write-Host "  Testing the Complete System" -ForegroundColor Red
 Write-Host "================================================================" -ForegroundColor Red
@@ -319,7 +319,7 @@ union
 Write-Host ""
 
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 Complete!" -ForegroundColor Cyan
+Write-Host "  Module 4 Complete!" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "You've completed the 'hidden -> visible -> actionable' journey:"

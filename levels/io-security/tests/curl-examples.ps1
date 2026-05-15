@@ -35,7 +35,7 @@ Write-Host ""
 # CONFIGURATION
 # ------------------------------------------------------------------------------
 
-# Load from azd environment (matches other camp3 scripts)
+# Load from azd environment (matches other Module 3 scripts)
 $APIM_GATEWAY_URL = azd env get-value APIM_GATEWAY_URL
 $MCP_APP_CLIENT_ID = azd env get-value MCP_APP_CLIENT_ID
 

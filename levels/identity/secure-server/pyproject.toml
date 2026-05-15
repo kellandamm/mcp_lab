@@ -1,5 +1,5 @@
 [project]
-name = "camp1-secure-server"
+name = "module1-secure-server"
 version = "1.0.0"
 requires-python = ">=3.10"
 dependencies = [

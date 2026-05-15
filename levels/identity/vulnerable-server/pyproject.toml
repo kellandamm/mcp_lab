@@ -1,5 +1,5 @@
 [project]
-name = "camp1-vulnerable-server"
+name = "module1-vulnerable-server"
 version = "1.0.0"
 requires-python = ">=3.10"
 dependencies = ["fastmcp>=2.0.0", "uvicorn>=0.30.0"]

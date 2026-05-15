@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🎫 Camp 1: Get MCP Token (Authorization Code + PKCE)"
+echo "🎫 Module 1: Get MCP Token (Authorization Code + PKCE)"
 echo "===================================================="
 
 # Load azd environment variables

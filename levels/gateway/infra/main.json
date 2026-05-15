@@ -142,7 +142,7 @@
     "environmentName": "[resourceGroup().name]",
     "tags": {
       "azd-env-name": "[variables('environmentName')]",
-      "camp": "camp2-gateway"
+      "module": "gateway"
     },
     "apiCenterLocation": "[__bicep.getApiCenterRegion(parameters('location'))]",
     "apimLocation": "[__bicep.getApimBasicV2Region(parameters('location'))]",

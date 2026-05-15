@@ -10,9 +10,7 @@ hide:
       <h1>Workshop Complete</h1>
       <p>You've seen what MCP can do — and exactly why every layer needs to be locked down. Here's what you covered and where to go next.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-mcp-workshop-sm.png" alt="Workshop Complete" />
-    </div>
+
   </div>
 </div>
 

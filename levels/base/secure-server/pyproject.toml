@@ -1,11 +1,11 @@
 [project]
-name = "base-camp-secure"
+name = "base-module-secure"
 version = "0.1.0"
-description = "Base Camp - Secure MCP Server (workshop demonstration)"
+description = "Module 0 - Secure MCP Server (workshop demonstration)"
 readme = "README.md"
 requires-python = ">=3.10"
 
-# Dependencies managed at camp level (../pyproject.toml)
+# Dependencies managed at module level (../pyproject.toml)
 # This package is installed as editable via: uv sync
 
 [build-system]

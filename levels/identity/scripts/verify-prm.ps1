@@ -2,7 +2,7 @@
 $ErrorActionPreference = 'Stop'
 
 Write-Host "=============================================="
-Write-Host "Camp 1: Verify PRM Endpoint"
+Write-Host "Module 1: Verify PRM Endpoint"
 Write-Host "=============================================="
 Write-Host ""
 
@@ -84,7 +84,7 @@ Write-Host ""
 Write-Host "Add to .vscode/mcp.json:"
 Write-Host "{"
 Write-Host "  `"mcpServers`": {"
-Write-Host "    `"camp1-secure`": {"
+Write-Host "    `"module1-secure`": {"
 Write-Host "      `"type`": `"sse`","
 Write-Host "      `"url`": `"${SECURE_URL}/mcp`""
 Write-Host "    }"

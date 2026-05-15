@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🎫 Camp 3: Get MCP Token for APIM"
+echo "🎫 Module 3: Get MCP Token for APIM"
 echo "================================="
 echo ""
 

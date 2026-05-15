@@ -18,14 +18,14 @@ var abbrs = loadJsonContent('abbreviations.json')
 var suffix = !empty(resourceSuffix) ? resourceSuffix : substring(uniqueString(resourceGroup().id, location), 0, 5)
 var tags = {
   workshop: 'Workshop'
-  camp: 'camp1'
+  module: 'Module 1'
 }
 
 // Log Analytics
 module logAnalytics 'modules/log-analytics.bicep' = {
   name: 'log-analytics'
   params: {
-    name: '${abbrs.logAnalytics}Workshop-camp1-${suffix}'
+    name: '${abbrs.logAnalytics}Workshop-Module 1-${suffix}'
     location: location
     tags: tags
   }
@@ -35,7 +35,7 @@ module logAnalytics 'modules/log-analytics.bicep' = {
 module identity 'modules/managed-identity.bicep' = {
   name: 'managed-identity'
   params: {
-    name: '${abbrs.managedIdentity}Workshop-camp1-${suffix}'
+    name: '${abbrs.managedIdentity}Workshop-Module 1-${suffix}'
     location: location
     tags: tags
   }
@@ -45,7 +45,7 @@ module identity 'modules/managed-identity.bicep' = {
 module keyVault 'modules/keyvault.bicep' = {
   name: 'keyvault'
   params: {
-    name: '${abbrs.keyVault}Workshop-camp1-${suffix}'
+    name: '${abbrs.keyVault}Workshop-Module 1-${suffix}'
     location: location
     tags: tags
     principalId: identity.outputs.principalId
@@ -67,7 +67,7 @@ module containerRegistry 'modules/container-registry.bicep' = {
 module containerAppsEnv 'modules/container-apps-env.bicep' = {
   name: 'container-apps-env'
   params: {
-    name: '${abbrs.containerAppsEnv}Workshop-camp1-${suffix}'
+    name: '${abbrs.containerAppsEnv}Workshop-Module 1-${suffix}'
     location: location
     tags: tags
     logAnalyticsId: logAnalytics.outputs.id
@@ -89,7 +89,7 @@ module vulnerableServer 'modules/container-app.bicep' = {
     environmentVariables: [
       {
         name: 'REQUIRED_TOKEN'
-        value: 'camp1_demo_token_INSECURE'
+        value: 'module1_demo_token_INSECURE'
       }
     ]
   }

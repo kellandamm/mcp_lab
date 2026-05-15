@@ -1,7 +1,3 @@
----
-hide:
-  - toc
----
 
 <div class="module-banner">
   <div class="module-banner-content">
@@ -10,9 +6,7 @@ hide:
       <h1>Gateway Security</h1>
       <p>Scale security across multiple MCP servers with Azure API Management — a single, hardened gateway for authentication, rate limiting, and content filtering.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-gateway-sm.png" alt="Module 2: Gateway" />
-    </div>
+
   </div>
 </div>
 
@@ -21,10 +15,10 @@ hide:
     **Primary Risks:** [MCP-02](https://microsoft.github.io/mcp-azure-security-guide/mcp/mcp02-privilege-escalation/) (Privilege Escalation), [MCP-06](https://microsoft.github.io/mcp-azure-security-guide/mcp/mcp06-prompt-injection/) (Prompt Injection), [MCP-07](https://microsoft.github.io/mcp-azure-security-guide/mcp/mcp07-authz/) (Insufficient Auth), [MCP-09](https://microsoft.github.io/mcp-azure-security-guide/mcp/mcp09-shadow-servers/) (Shadow Servers)
 
 !!! info "Module 2 at a Glance"
-    ⏱️ **Time:** 1 hour (demo) · 2.5 hours (full walkthrough)  
-    💰 **Azure Cost:** ~$5–10/day while deployed (adds APIM Developer tier + Content Safety)  
-    🗑️ **Clean up when done:** `azd down --force --purge`  
-    👉 **Recommended client:** [GitHub Copilot agent mode](../../copilot-client.md)
+    **Time:** 1 hour (demo) · 2.5 hours (full walkthrough)  
+    **Azure Cost:** ~$5–10/day while deployed (adds APIM Developer tier + Content Safety)  
+    **Clean up when done:** `azd down --force --purge`  
+    **Recommended client:** [GitHub Copilot agent mode](../../copilot-client.md)
 
 In Module 1, you secured a single MCP server with OAuth and Managed Identity. In production environments, you'll often have dozens of MCP servers across business systems, APIs, and data sources — each needing consistent security. Securing them individually means duplicating authentication logic, rate limiting, and monitoring across every server.
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Preprovision hook for Camp 3
+# Preprovision hook for Module 3
 # Creates Entra ID app registrations before infrastructure deployment
 # OAuth is pre-configured so workshop can focus on I/O security
 
@@ -7,7 +7,7 @@ set -e
 
 echo ""
 echo "=========================================="
-echo "Camp 3: Entra ID App Registration"
+echo "Module 3: Entra ID App Registration"
 echo "=========================================="
 echo ""
 
@@ -27,7 +27,7 @@ TENANT_ID=$(az account show --query tenantId -o tsv)
 echo "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-APP_SUFFIX="${AZURE_ENV_NAME:-camp3}-$(date +%s | tail -c 5)"
+APP_SUFFIX="${AZURE_ENV_NAME:-Module 3}-$(date +%s | tail -c 5)"
 
 # Generate UUIDs upfront
 SCOPE_ID=$(uuidgen)

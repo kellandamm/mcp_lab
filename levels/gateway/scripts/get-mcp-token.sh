@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🎫 Camp 2: Get MCP Token for APIM"
+echo "🎫 Module 2: Get MCP Token for APIM"
 echo "================================="
 echo ""
 
@@ -9,9 +9,9 @@ echo ""
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CAMP_DIR="$(dirname "$SCRIPT_DIR")"
 
-if [ -f "${CAMP_DIR}/.azure/camp2-barks/.env" ]; then
-    echo "📦 Loading environment from .azure/camp2-barks/.env..."
-    source "${CAMP_DIR}/.azure/camp2-barks/.env"
+if [ -f "${CAMP_DIR}/.azure/Module 2-barks/.env" ]; then
+    echo "📦 Loading environment from .azure/Module 2-barks/.env..."
+    source "${CAMP_DIR}/.azure/Module 2-barks/.env"
 else
     echo "📦 Loading azd environment..."
     cd "$CAMP_DIR"

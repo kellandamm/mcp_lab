@@ -158,7 +158,7 @@ wheels = [
 ]
 
 [[package]]
-name = "camp1-identity"
+name = "module1-identity"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

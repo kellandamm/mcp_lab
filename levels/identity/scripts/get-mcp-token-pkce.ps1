@@ -1,7 +1,7 @@
-# Camp 1: Get MCP Token (Authorization Code + PKCE)
+# Module 1: Get MCP Token (Authorization Code + PKCE)
 $ErrorActionPreference = 'Stop'
 
-Write-Host "🎫 Camp 1: Get MCP Token (Authorization Code + PKCE)"
+Write-Host "🎫 Module 1: Get MCP Token (Authorization Code + PKCE)"
 Write-Host "===================================================="
 
 # Load azd environment variables

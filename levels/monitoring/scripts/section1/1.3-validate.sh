@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 1.3: Validate APIM Logging
+# Module 4 - Section 1.3: Validate APIM Logging
 # =============================================================================
 # This script queries Log Analytics to verify that APIM diagnostic logs
 # configured via Bicep infrastructure are capturing traffic correctly.
@@ -21,7 +21,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 1.3: Validate APIM Logging${NC}"
+echo -e "${CYAN}  Module 4 - Section 1.3: Validate APIM Logging${NC}"
 echo -e "${CYAN}================================================================${NC}"
 echo ""
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Postprovision hook for Camp 3
+# Postprovision hook for Module 3
 # Called automatically by azd after infrastructure deployment
 
 set -e
@@ -77,7 +77,7 @@ echo "=========================================="
 echo ""
 echo "Infrastructure deployed successfully!"
 echo ""
-echo "Camp 3: I/O Security"
+echo "Module 3: I/O Security"
 echo "===================="
 echo ""
 echo "What's deployed:"

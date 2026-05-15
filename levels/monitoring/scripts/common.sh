@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Common Functions and Environment Setup
+# Module 4 - Common Functions and Environment Setup
 # =============================================================================
 # Source this file in other scripts:
 #   source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
@@ -50,7 +50,7 @@ init_mcp_session() {
         -H "Authorization: Bearer $TOKEN" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json, text/event-stream" \
-        -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"camp4-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
+        -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"module4-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
 
     SESSION_ID=$(grep -i "mcp-session-id" /tmp/mcp-headers.txt 2>/dev/null | sed 's/.*: *//' | tr -d '\r\n') || true
     [ -z "$SESSION_ID" ] && SESSION_ID="session-$(date +%s)"

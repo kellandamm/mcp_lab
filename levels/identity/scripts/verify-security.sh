@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Camp 1: Security Validation"
+echo "Module 1: Security Validation"
 echo "=============================="
 
 # Load azd environment variables

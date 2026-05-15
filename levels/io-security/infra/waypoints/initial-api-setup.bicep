@@ -1,7 +1,7 @@
 /*
-  Initial APIM API Setup for Camp 3
+  Initial APIM API Setup for Module 3
   
-  This follows the Camp 2 pattern:
+  This follows the Module 2 pattern:
   1. Workshop MCP Server - Native MCP type API (passthrough to Container App)
   2. Path REST API - HTTP API with operations (backend for Path MCP)
   3. Path MCP Server - MCP API that wraps Path REST API operations as tools

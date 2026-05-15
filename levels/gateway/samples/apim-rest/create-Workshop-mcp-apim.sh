@@ -22,8 +22,8 @@
 #
 # Example:
 #   export SUBSCRIPTION_ID=$(az account show --query id -o tsv)
-#   export RESOURCE_GROUP=rg-camp2-dev
-#   export APIM_NAME=apim-rg-camp2-dev
+#   export RESOURCE_GROUP=rg-Module 2-dev
+#   export APIM_NAME=apim-rg-Module 2-dev
 #   export Workshop_SERVER_URL=https://your-Workshop-server.example.com
 #   export TENANT_ID=$(az account show --query tenantId -o tsv)
 #   export MCP_APP_CLIENT_ID=<entra-app-client-id>

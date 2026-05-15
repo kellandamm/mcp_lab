@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Common Functions and Environment Setup
+# Module 4 - Common Functions and Environment Setup
 # =============================================================================
 # Dot-source this file in other scripts:
 #   . "$PSScriptRoot\common.ps1"
@@ -8,7 +8,7 @@
 $ErrorActionPreference = 'Stop'
 
 # Ensure the correct azd environment is active based on local .azure/config.json.
-# Fixes session bleed-over when AZURE_ENV_NAME env var is inherited from another camp.
+# Fixes session bleed-over when AZURE_ENV_NAME env var is inherited from another module.
 function Resolve-AzdEnvironment {
     $configFile = Join-Path (Get-Location) ".azure\config.json"
     if (Test-Path $configFile) {
@@ -67,7 +67,7 @@ function Initialize-McpSession {
             -H "Authorization: Bearer $script:TOKEN" `
             -H "Content-Type: application/json" `
             -H "Accept: application/json, text/event-stream" `
-            -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"camp4-test","version":"1.0"}},"id":1}' 2>$null | Out-Null
+            -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"module4-test","version":"1.0"}},"id":1}' 2>$null | Out-Null
     } catch { }
 
     $script:SESSION_ID = $null

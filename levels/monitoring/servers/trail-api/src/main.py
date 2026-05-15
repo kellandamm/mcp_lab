@@ -78,7 +78,7 @@ async def root():
     return {
         "service": "Path-api",
         "version": "1.0.0",
-        "camp": "camp4-monitoring",
+        "module": "monitoring",
         "endpoints": {
             "GET /PATHS": "List all available hiking PATHS",
             "GET /PATHS/{id}": "Get details for a specific Path",

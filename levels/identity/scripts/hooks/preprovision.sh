@@ -1,12 +1,12 @@
 #!/bin/bash
-# Preprovision hook for Camp 1
+# Preprovision hook for Module 1
 # Generates a unique resource suffix to avoid soft-delete conflicts
 
 set -e
 
 echo ""
 echo "=========================================="
-echo "Camp 1: Pre-provision Setup"
+echo "Module 1: Pre-provision Setup"
 echo "=========================================="
 echo ""
 

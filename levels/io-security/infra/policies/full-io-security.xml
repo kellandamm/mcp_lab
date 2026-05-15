@@ -2,8 +2,8 @@
     APIM Policy: Full I/O Security (Layer 1 + Layer 2)
     
     This policy includes complete defense-in-depth I/O security:
-    - OAuth 2.0 validation (from Camp 2)
-    - Rate limiting (from Camp 2)
+    - OAuth 2.0 validation (from Module 2)
+    - Rate limiting (from Module 2)
     - Layer 1: Content Safety with Prompt Shields (via policy fragment)
     - Layer 2: Azure Function input_check (advanced injection patterns)
     - Layer 2: Azure Function sanitize_output (PII redaction + credential scanning)

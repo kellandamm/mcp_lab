@@ -10,9 +10,6 @@ hide:
       <h1>Supply Chain Security</h1>
       <p>Verify what you install, audit what you run, and govern what gets deployed — because a malicious MCP package can bypass every security control you've built.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-mcp-workshop-sm.png" alt="Module 5: Supply Chain Security" />
-    </div>
   </div>
 </div>
 

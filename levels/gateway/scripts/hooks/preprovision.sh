@@ -1,12 +1,12 @@
 #!/bin/bash
-# Preprovision hook for Camp 2
+# Preprovision hook for Module 2
 # Creates Entra ID app registrations before infrastructure deployment
 
 set -e
 
 echo ""
 echo "=========================================="
-echo "Camp 2: Entra ID App Registration"
+echo "Module 2: Entra ID App Registration"
 echo "=========================================="
 echo ""
 
@@ -26,7 +26,7 @@ TENANT_ID=$(az account show --query tenantId -o tsv)
 echo "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-APP_SUFFIX="${AZURE_ENV_NAME:-camp2}-$(date +%s | tail -c 5)"
+APP_SUFFIX="${AZURE_ENV_NAME:-Module 2}-$(date +%s | tail -c 5)"
 
 # Generate UUIDs upfront
 SCOPE_ID=$(uuidgen)
@@ -35,9 +35,9 @@ AZURE_CLI_APP_ID="04b07795-8ddb-461a-bbee-02f9e1bf7b46"
 
 # Create MCP Resource App
 echo ""
-echo "Creating MCP Resource App: Workshop-mcp-client-camp2-$APP_SUFFIX"
+echo "Creating MCP Resource App: Workshop-mcp-client-Module 2-$APP_SUFFIX"
 MCP_APP_CLIENT_ID=$(az ad app create \
-    --display-name "Workshop-mcp-client-camp2-$APP_SUFFIX" \
+    --display-name "Workshop-mcp-client-Module 2-$APP_SUFFIX" \
     --sign-in-audience "AzureADMyOrg" \
     --query appId -o tsv)
 
@@ -144,9 +144,9 @@ az ad sp create --id "$MCP_APP_CLIENT_ID" 2>/dev/null || echo "Service principal
 
 # Create APIM Client App
 echo ""
-echo "Creating APIM Client App: Workshop-apim-client-camp2-$APP_SUFFIX"
+echo "Creating APIM Client App: Workshop-apim-client-Module 2-$APP_SUFFIX"
 APIM_CLIENT_APP_ID=$(az ad app create \
-    --display-name "Workshop-apim-client-camp2-$APP_SUFFIX" \
+    --display-name "Workshop-apim-client-Module 2-$APP_SUFFIX" \
     --sign-in-audience "AzureADMyOrg" \
     --query appId -o tsv)
 

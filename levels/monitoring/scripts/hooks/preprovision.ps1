@@ -1,4 +1,4 @@
-# Preprovision hook for Camp 4
+# Preprovision hook for Module 4
 # Creates Entra ID app registrations before infrastructure deployment
 # OAuth is pre-configured so workshop can focus on monitoring and telemetry
 
@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host ""
 Write-Host "=========================================="
-Write-Host "Camp 4: Entra ID App Registration"
+Write-Host "Module 4: Entra ID App Registration"
 Write-Host "=========================================="
 Write-Host ""
 
@@ -28,7 +28,7 @@ if (-not $env:RESOURCE_SUFFIX) {
 # ============================================
 # Derive from env name if not already set in the azd environment.
 # This prevents inheriting a stale AZURE_RESOURCE_GROUP shell variable
-# from a different camp session.
+# from a different module session.
 $storedRG = azd env get-value AZURE_RESOURCE_GROUP 2>$null
 if (-not $storedRG -or $storedRG -like "ERROR:*") {
     $defaultRG = "rg-$($env:AZURE_ENV_NAME)"
@@ -52,7 +52,7 @@ $TENANT_ID = az account show --query tenantId -o tsv
 Write-Host "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "camp4" }
+$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "Module 4" }
 $timestamp = (Get-Date -UFormat %s).ToString()
 $APP_SUFFIX = "$envName-$($timestamp.Substring($timestamp.Length - 4))"
 

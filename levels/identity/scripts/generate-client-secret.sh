@@ -15,7 +15,7 @@ CLIENT_ID=$(azd env get-value AZURE_CLIENT_ID 2>/dev/null || echo "")
 
 if [ -z "${CLIENT_ID}" ]; then
     echo "❌ AZURE_CLIENT_ID not found in azd environment"
-    echo "   Run this from camps/camp1-identity after deploying with azd"
+    echo "   Run this from modules/module1-identity after deploying with azd"
     exit 1
 fi
 

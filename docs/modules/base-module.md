@@ -10,9 +10,6 @@ hide:
       <h1>MCP Foundations</h1>
       <p>See what MCP exposes — tools, resources, and user data — then experience firsthand what happens when there's nothing protecting it.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-base-module-sm.png" alt="Module 0: Foundations" />
-    </div>
   </div>
 </div>
 

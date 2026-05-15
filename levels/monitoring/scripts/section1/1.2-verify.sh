@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 1.2: Verify APIM Diagnostic Configuration
+# Module 4 - Section 1.2: Verify APIM Diagnostic Configuration
 # =============================================================================
 # This script verifies that APIM diagnostic settings are properly configured.
 # Diagnostic settings are deployed via Bicep infrastructure, not manually.
@@ -27,7 +27,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 1.2: Verify APIM Diagnostics${NC}"
+echo -e "${CYAN}  Module 4 - Section 1.2: Verify APIM Diagnostics${NC}"
 echo -e "${CYAN}  Understanding diagnostic settings configuration${NC}"
 echo -e "${CYAN}================================================================${NC}"
 echo ""

@@ -1,7 +1,7 @@
-# Camp 1: Security Validation
+# Module 1: Security Validation
 $ErrorActionPreference = 'Stop'
 
-Write-Host "Camp 1: Security Validation"
+Write-Host "Module 1: Security Validation"
 Write-Host "=============================="
 
 # Load azd environment variables

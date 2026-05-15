@@ -4,7 +4,7 @@
 set -e
 
 echo "=============================================="
-echo "Camp 1: Verify PRM Endpoint"
+echo "Module 1: Verify PRM Endpoint"
 echo "=============================================="
 echo ""
 
@@ -80,7 +80,7 @@ echo ""
 echo "Add to .vscode/mcp.json:"
 echo "{"
 echo "  \"mcpServers\": {"
-echo "    \"camp1-secure\": {"
+echo "    \"module1-secure\": {"
 echo "      \"type\": \"sse\","
 echo "      \"url\": \"${SECURE_URL}/mcp\""
 echo "    }"

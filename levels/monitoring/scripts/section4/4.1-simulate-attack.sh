@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 4.1: Simulate Multi-Vector Attack
+# Module 4 - Section 4.1: Simulate Multi-Vector Attack
 # =============================================================================
 # Pattern: hidden -> visible -> actionable
 # Final validation: Test the complete observability system
@@ -30,7 +30,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${RED}================================================================${NC}"
-echo -e "${RED}  [!] Camp 4 - Section 4.1: Attack Simulation${NC}"
+echo -e "${RED}  [!] Module 4 - Section 4.1: Attack Simulation${NC}"
 echo -e "${RED}  Pattern: hidden -> visible -> actionable${NC}"
 echo -e "${RED}  Testing the Complete System${NC}"
 echo -e "${RED}================================================================${NC}"
@@ -316,7 +316,7 @@ KQLEOF
 echo ""
 
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 Complete!${NC}"
+echo -e "${CYAN}  Module 4 Complete!${NC}"
 echo -e "${CYAN}================================================================${NC}"
 echo ""
 echo "You've completed the 'hidden -> visible -> actionable' journey:"

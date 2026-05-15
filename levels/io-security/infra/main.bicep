@@ -27,15 +27,15 @@ param apimClientAppId string = ''
 var apimLocation = getApimBasicV2Region(location)
 var contentSafetyLocation = getContentSafetyRegion(location)
 
-// Naming convention: camp3-{unique suffix}
+// Naming convention: Module 3-{unique suffix}
 // Uses a short unique suffix derived from resource group ID
 var suffix = substring(uniqueString(resourceGroup().id, location), 0, 5)
-var prefix = 'camp3-${suffix}'
+var prefix = 'Module 3-${suffix}'
 
 // Tags for all resources
 var tags = {
   'azd-env-name': resourceGroup().name
-  camp: 'camp3-io-security'
+  module: 'io-security'
 }
 
 // Log Analytics Workspace

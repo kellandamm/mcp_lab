@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 1.2: Verify APIM Diagnostic Configuration
+# Module 4 - Section 1.2: Verify APIM Diagnostic Configuration
 # =============================================================================
 # This script verifies that APIM diagnostic settings are properly configured.
 # Diagnostic settings are deployed via Bicep infrastructure, not manually.
@@ -11,7 +11,7 @@ Set-Location (Join-Path $PSScriptRoot "..\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 1.2: Verify APIM Diagnostics" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 1.2: Verify APIM Diagnostics" -ForegroundColor Cyan
 Write-Host "  Understanding diagnostic settings configuration" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""

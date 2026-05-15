@@ -1,5 +1,5 @@
 #!/bin/bash
-# Preprovision hook for Camp 4
+# Preprovision hook for Module 4
 # Creates Entra ID app registrations before infrastructure deployment
 # OAuth is pre-configured so workshop can focus on monitoring and telemetry
 
@@ -7,7 +7,7 @@ set -e
 
 echo ""
 echo "=========================================="
-echo "Camp 4: Entra ID App Registration"
+echo "Module 4: Entra ID App Registration"
 echo "=========================================="
 echo ""
 
@@ -32,10 +32,10 @@ fi
 # ============================================
 # Derive from env name if not already set in the azd environment.
 # This prevents inheriting a stale AZURE_RESOURCE_GROUP shell variable
-# from a different camp session.
+# from a different module session.
 STORED_RG=$(azd env get-value AZURE_RESOURCE_GROUP 2>/dev/null || echo "")
 if [ -z "$STORED_RG" ]; then
-    DEFAULT_RG="rg-${AZURE_ENV_NAME:-camp4}"
+    DEFAULT_RG="rg-${AZURE_ENV_NAME:-Module 4}"
     echo "Setting resource group: $DEFAULT_RG"
     azd env set AZURE_RESOURCE_GROUP "$DEFAULT_RG"
     export AZURE_RESOURCE_GROUP="$DEFAULT_RG"
@@ -57,7 +57,7 @@ TENANT_ID=$(az account show --query tenantId -o tsv)
 echo "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-APP_SUFFIX="${AZURE_ENV_NAME:-camp4}-$(date +%s | tail -c 5)"
+APP_SUFFIX="${AZURE_ENV_NAME:-Module 4}-$(date +%s | tail -c 5)"
 
 # Generate UUIDs upfront
 SCOPE_ID=$(uuidgen)

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ==============================================================================
-# Camp 3: Get MCP Token (Device Code Flow)
+# Module 3: Get MCP Token (Device Code Flow)
 # ==============================================================================
 # Gets an OAuth token for authenticating with the PATHS MCP server through APIM.
 # Use this token in the PATHS-mcp.http file or with curl commands.
@@ -11,7 +11,7 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR/.."
 
-echo "🎫 Camp 3: Get MCP Token (Device Code Flow)"
+echo "🎫 Module 3: Get MCP Token (Device Code Flow)"
 echo "==========================================="
 
 # Load azd environment variables

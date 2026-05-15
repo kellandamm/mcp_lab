@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 1.3: Validate APIM Logging
+# Module 4 - Section 1.3: Validate APIM Logging
 # =============================================================================
 # This script queries Log Analytics to verify that APIM diagnostic logs
 # configured via Bicep infrastructure are capturing traffic correctly.
@@ -11,11 +11,11 @@ Set-Location (Join-Path $PSScriptRoot "..\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 1.3: Validate APIM Logging" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 1.3: Validate APIM Logging" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
 
-# Ensure correct azd environment (fixes session bleed-over from other camps)
+# Ensure correct azd environment (fixes session bleed-over from other modules)
 $configFile = Join-Path (Get-Location) ".azure\config.json"
 if (Test-Path $configFile) {
     $localDefault = (Get-Content $configFile | ConvertFrom-Json).defaultEnvironment

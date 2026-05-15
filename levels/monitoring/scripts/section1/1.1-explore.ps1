@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 1.1: Explore APIM Gateway Logging
+# Module 4 - Section 1.1: Explore APIM Gateway Logging
 # =============================================================================
 # This script sends MCP requests through APIM to demonstrate:
 # 1. Security layers (OAuth, Content Safety, Input Validation) are working
@@ -12,17 +12,17 @@
 
 $ErrorActionPreference = 'Stop'
 
-# Set working directory to camp root so .azure/config.json is accessible
+# Set working directory to module root so .azure/config.json is accessible
 Set-Location (Join-Path $PSScriptRoot "..\\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 1: APIM Gateway Logging" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 1: APIM Gateway Logging" -ForegroundColor Cyan
 Write-Host "  Explore how MCP traffic is captured in Log Analytics" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan
 Write-Host ""
 
-# Ensure correct azd environment (fixes session bleed-over from other camps)
+# Ensure correct azd environment (fixes session bleed-over from other modules)
 $configFile = Join-Path (Get-Location) ".azure\config.json"
 if (Test-Path $configFile) {
     $localDefault = (Get-Content $configFile | ConvertFrom-Json).defaultEnvironment
@@ -88,7 +88,7 @@ try {
         -H "Authorization: Bearer $TOKEN" `
         -H "Content-Type: application/json" `
         -H "Accept: application/json, text/event-stream" `
-        -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"camp4-test","version":"1.0"}},"id":1}' 2>$null | Out-Null
+        -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"module4-test","version":"1.0"}},"id":1}' 2>$null | Out-Null
 } catch { }
 
 $SESSION_ID = $null

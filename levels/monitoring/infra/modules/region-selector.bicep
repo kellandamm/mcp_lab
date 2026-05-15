@@ -1,4 +1,4 @@
-// Region Selector for Camp 2 Gateway
+// Region Selector for Module 2 Gateway
 // Handles resource types that may not be available in all regions
 
 func getAdjustedRegion(location string, map object) string =>

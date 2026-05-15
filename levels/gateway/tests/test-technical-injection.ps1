@@ -1,4 +1,4 @@
-# Test camp3 injection patterns against camp2 content safety
+# Test Module 3 injection patterns against Module 2 content safety
 $ErrorActionPreference = 'Stop'
 
 Set-Location (Join-Path $PSScriptRoot "..")
@@ -7,7 +7,7 @@ $APIM_URL = azd env get-value APIM_GATEWAY_URL
 $MCP_APP_CLIENT_ID = azd env get-value MCP_APP_CLIENT_ID
 $TOKEN = az account get-access-token --resource $MCP_APP_CLIENT_ID --query accessToken -o tsv
 
-Write-Host "Testing camp3 injection patterns against camp2 content safety..."
+Write-Host "Testing Module 3 injection patterns against Module 2 content safety..."
 Write-Host ""
 
 # Initialize session
@@ -71,5 +71,5 @@ Write-Host "=========================================="
 Write-Host "Summary:"
 Write-Host "- Content Safety Prompt Shields catches prompt injection/jailbreaks"
 Write-Host "- Technical patterns (shell, path, SQL) are NOT designed for AI filtering"
-Write-Host "- Camp3 adds Layer 2: Input Validation for technical patterns"
+Write-Host "- Module 3 adds Layer 2: Input Validation for technical patterns"
 Write-Host "=========================================="

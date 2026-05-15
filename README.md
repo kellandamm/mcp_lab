@@ -6,7 +6,6 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/Workshop)
 
-<img src="docs/images/Workshop-mcp-workshop.png" alt="MCP Security Workshop" width="400">
 
 ## Overview
 

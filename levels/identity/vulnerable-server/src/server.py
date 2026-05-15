@@ -7,7 +7,7 @@ from fastmcp import FastMCP, Context
 from fastmcp.server.auth import StaticTokenVerifier
 
 # VULNERABILITY: Token in environment variable
-REQUIRED_TOKEN = os.getenv("REQUIRED_TOKEN", "camp1_demo_token_INSECURE")
+REQUIRED_TOKEN = os.getenv("REQUIRED_TOKEN", "module1_demo_token_INSECURE")
 
 USERS = {
     "user_001": {"name": "Alice Johnson", "email": "alice@example.com",

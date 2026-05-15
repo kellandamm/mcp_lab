@@ -1,5 +1,5 @@
 #!/bin/bash
-# Test camp3 injection patterns against camp2 content safety
+# Test Module 3 injection patterns against Module 2 content safety
 set -e
 cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
@@ -7,7 +7,7 @@ APIM_URL=$(azd env get-value APIM_GATEWAY_URL)
 MCP_APP_CLIENT_ID=$(azd env get-value MCP_APP_CLIENT_ID)
 TOKEN=$(az account get-access-token --resource "$MCP_APP_CLIENT_ID" --query accessToken -o tsv)
 
-echo "Testing camp3 injection patterns against camp2 content safety..."
+echo "Testing Module 3 injection patterns against Module 2 content safety..."
 echo ""
 
 # Initialize session
@@ -65,5 +65,5 @@ echo "=========================================="
 echo "Summary:"
 echo "- Content Safety Prompt Shields catches prompt injection/jailbreaks"  
 echo "- Technical patterns (shell, path, SQL) are NOT designed for AI filtering"
-echo "- Camp3 adds Layer 2: Input Validation for technical patterns"
+echo "- Module 3 adds Layer 2: Input Validation for technical patterns"
 echo "=========================================="

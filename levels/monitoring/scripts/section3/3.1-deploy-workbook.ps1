@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 3.1: Deploy Security Workbook (Dashboard)
+# Module 4 - Section 3.1: Deploy Security Workbook (Dashboard)
 # =============================================================================
 # Pattern: hidden → visible → actionable
 # Transition: VISIBLE → ACTIONABLE (part 1: visibility)
@@ -11,7 +11,7 @@ Set-Location (Join-Path $PSScriptRoot "..\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 3.1: Deploy Security Workbook" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 3.1: Deploy Security Workbook" -ForegroundColor Cyan
 Write-Host "  Pattern: hidden -> visible -> actionable" -ForegroundColor Cyan
 Write-Host "  Transition: VISIBLE -> ACTIONABLE" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan

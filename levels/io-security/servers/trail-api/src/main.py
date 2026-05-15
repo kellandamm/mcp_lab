@@ -50,7 +50,7 @@ async def root():
     return {
         "service": "Path-api",
         "version": "1.0.0",
-        "camp": "camp3-io-security",
+        "module": "io-security",
         "endpoints": {
             "GET /PATHS": "List all available hiking PATHS",
             "GET /PATHS/{id}": "Get details for a specific Path",

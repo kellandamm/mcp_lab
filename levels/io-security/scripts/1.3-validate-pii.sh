@@ -205,7 +205,7 @@ if [ $TESTS_FAILED -eq 0 ] && [ $TESTS_PASSED -gt 0 ]; then
     echo "OWASP MCP-03 (Tool Poisoning) MITIGATED"
     echo ""
     echo "=========================================="
-    echo "Camp 3 Complete!"
+    echo "Module 3 Complete!"
     echo "=========================================="
     echo ""
     echo "You've successfully implemented defense-in-depth I/O security:"

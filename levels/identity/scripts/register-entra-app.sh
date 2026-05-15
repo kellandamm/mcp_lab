@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-echo "🔐 Camp 1: Register Entra ID Application"
+echo "🔐 Module 1: Register Entra ID Application"
 echo "========================================"
 
-APP_NAME="Workshop-mcp-camp1-$(date +%s)"
+APP_NAME="Workshop-mcp-Module 1-$(date +%s)"
 DEVICE_CODE_REDIRECT_URI="urn:ietf:wg:oauth:2.0:oob"
 
 echo "Creating Entra ID app registration: ${APP_NAME}"

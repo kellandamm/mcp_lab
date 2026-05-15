@@ -10,9 +10,6 @@ hide:
       <h1>Identity & Access Management</h1>
       <p>Establish production-grade identity controls with Managed Identity, Key Vault, and OAuth 2.1 — passwordless, enterprise-ready security for your MCP server.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-identity-sm.png" alt="Module 1: Identity" />
-    </div>
   </div>
 </div>
 
@@ -113,7 +110,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
         # Example: How the vulnerable server "authenticates"
         auth = StaticTokenVerifier(
             tokens={
-                "camp1_demo_token_INSECURE": {"client_id": "user_001"}
+                "module1_demo_token_INSECURE": {"client_id": "user_001"}
             }
         )
         ```
@@ -211,7 +208,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
     3. Click on the **vulnerable server** Container App (named `ca-vulnerable-xxxxx`)
     4. In the left menu, go to **Application** → **Containers**
     5. Click the **Environment variables** tab
-    6. Find `REQUIRED_TOKEN` with value `camp1_demo_token_INSECURE` - it's right there in plain text!
+    6. Find `REQUIRED_TOKEN` with value `module1_demo_token_INSECURE` - it's right there in plain text!
 
     **Try it yourself:** Copy the stolen token and use it to authenticate:
 
@@ -222,7 +219,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
         
         # Test with the stolen token - server accepts it!
         curl -X POST ${VULNERABLE_URL}/mcp \
-          -H "Authorization: Bearer camp1_demo_token_INSECURE" \
+          -H "Authorization: Bearer module1_demo_token_INSECURE" \
           -H "Content-Type: application/json" \
           -H "Accept: application/json, text/event-stream" \
           -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"exploit-test","version":"1.0"}},"id":1}'
@@ -235,7 +232,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
 
         # Test with the stolen token - server accepts it!
         curl.exe -X POST "$VULNERABLE_URL/mcp" `
-          -H "Authorization: Bearer camp1_demo_token_INSECURE" `
+          -H "Authorization: Bearer module1_demo_token_INSECURE" `
           -H "Content-Type: application/json" `
           -H "Accept: application/json, text/event-stream" `
           -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"exploit-test","version":"1.0"}},"id":1}'
@@ -575,7 +572,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
 
 ??? success "Waypoint 5: Upgrade to OAuth 2.1 with JWT Validation"
 
-    Static tokens served us well in Waypoint 4, but they have a fatal flaw: they never expire. If someone gets hold of `camp1_demo_token_INSECURE`, they have permanent access—and there's no way to revoke it. Time to upgrade to OAuth 2.1 with Microsoft Entra ID.
+    Static tokens served us well in Waypoint 4, but they have a fatal flaw: they never expire. If someone gets hold of `module1_demo_token_INSECURE`, they have permanent access—and there's no way to revoke it. Time to upgrade to OAuth 2.1 with Microsoft Entra ID.
     
     In this waypoint, you'll replace static token authentication with cryptographically-signed JWT tokens (RFC 7519) that expire after an hour. Your secure server will validate every token's signature, audience, issuer, and expiration - eliminating the risks of hardcoded credentials. You'll test two OAuth flows: Device Code Flow (perfect for CLI tools) and Authorization Code + PKCE (the production-ready browser flow).
     
@@ -762,7 +759,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
         
         **Why this matters:**
         
-        - **No more hardcoded passwords!** Instead of storing a static token like `camp1_demo_token_INSECURE`, your server will validate cryptographically signed tokens from Microsoft.
+        - **No more hardcoded passwords!** Instead of storing a static token like `module1_demo_token_INSECURE`, your server will validate cryptographically signed tokens from Microsoft.
         - **Tokens expire automatically** - even if someone steals a token, it only works for about an hour.
         - **You can revoke access** - if something goes wrong, you can disable the app registration and all tokens immediately stop working.
         - **Full audit Path** - Microsoft logs every authentication, so you know who accessed what and when.
@@ -865,7 +862,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
     ```python
     # Before (vulnerable server):
     auth = StaticTokenVerifier(
-        tokens={"camp1_demo_token_INSECURE": {"client_id": "user_001"}}
+        tokens={"module1_demo_token_INSECURE": {"client_id": "user_001"}}
     )
     
     # After (secure server):
@@ -1575,7 +1572,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
 
     | Security Control | Vulnerable Server | Secure Server |
     |------------------|-------------------|---------------|
-    | **Authentication** | Static token (`camp1_demo_token_INSECURE`) | OAuth 2.1 JWT with Entra ID |
+    | **Authentication** | Static token (`module1_demo_token_INSECURE`) | OAuth 2.1 JWT with Entra ID |
     | **Token Storage** | Hardcoded in env var (visible in Portal) | Not applicable - JWT per request |
     | **Token Expiration** | Never | ~1 hour |
     | **Token Revocation** | Impossible | Possible via Entra ID |

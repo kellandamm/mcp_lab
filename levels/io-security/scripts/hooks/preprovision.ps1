@@ -1,4 +1,4 @@
-# Preprovision hook for Camp 3
+# Preprovision hook for Module 3
 # Creates Entra ID app registrations before infrastructure deployment
 # OAuth is pre-configured so workshop can focus on I/O security
 
@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 
 Write-Host ""
 Write-Host "=========================================="
-Write-Host "Camp 3: Entra ID App Registration"
+Write-Host "Module 3: Entra ID App Registration"
 Write-Host "=========================================="
 Write-Host ""
 
@@ -26,7 +26,7 @@ $TENANT_ID = az account show --query tenantId -o tsv
 Write-Host "Tenant ID: $TENANT_ID"
 
 # Unique name for apps
-$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "camp3" }
+$envName = if ($env:AZURE_ENV_NAME) { $env:AZURE_ENV_NAME } else { "Module 3" }
 $suffix = (Get-Date -UFormat %s).Substring((Get-Date -UFormat %s).Length - 4)
 $APP_SUFFIX = "$envName-$suffix"
 

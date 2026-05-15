@@ -45,7 +45,7 @@ mcp = FastMCP("Workshop MCP Server")
 WEATHER_DATA = {
     "summit": {"temp_f": 28, "wind_mph": 35, "conditions": "Partly cloudy", "visibility": "Good"},
     "base": {"temp_f": 45, "wind_mph": 15, "conditions": "Clear", "visibility": "Excellent"},
-    "camp1": {"temp_f": 38, "wind_mph": 20, "conditions": "Light snow", "visibility": "Moderate"},
+    "Module 1": {"temp_f": 38, "wind_mph": 20, "conditions": "Light snow", "visibility": "Moderate"},
 }
 
 Path_CONDITIONS = {
@@ -67,7 +67,7 @@ def get_weather(location: str = "base") -> str:
     Get current weather conditions for a mountain location.
     
     Args:
-        location: Location to get weather for (summit, base, camp1)
+        location: Location to get weather for (summit, base, Module 1)
     
     Returns:
         Weather data as JSON string

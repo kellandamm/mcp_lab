@@ -37,14 +37,14 @@ var effectiveSuffix = !empty(resourceSuffix) ? resourceSuffix : substring(unique
 var apimLocation = getApimBasicV2Region(location)
 var contentSafetyLocation = getContentSafetyRegion(location)
 
-// Naming convention: camp4-{suffix}
+// Naming convention: Module 4-{suffix}
 // Suffix comes from preprovision hook (RESOURCE_SUFFIX) or auto-generates
-var prefix = 'camp4-${effectiveSuffix}'
+var prefix = 'Module 4-${effectiveSuffix}'
 
 // Tags for all resources
 var tags = {
   'azd-env-name': resourceGroup().name
-  camp: 'camp4-monitoring'
+  module: 'monitoring'
 }
 
 // Log Analytics Workspace
@@ -236,7 +236,7 @@ module containerApps 'modules/container-apps.bicep' = {
     identityId: containerAppsIdentity.outputs.id
     appInsightsConnectionString: appInsights.outputs.connectionString
     sanitizeFunctionUrl: '${functionAppV1.outputs.url}/api/sanitize-output'
-    sanitizeEnabled: true  // Camp 4: sanitization enabled by default
+    sanitizeEnabled: true  // Module 4: sanitization enabled by default
   }
 }
 

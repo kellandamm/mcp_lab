@@ -28,7 +28,7 @@ param apimClientAppId string
 // Tags for all resources
 var tags = {
   'azd-env-name': environmentName
-  camp: 'camp2-gateway'
+  module: 'gateway'
 }
 
 // Adjusted regions for services with limited availability

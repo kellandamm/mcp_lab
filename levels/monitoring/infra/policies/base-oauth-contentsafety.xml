@@ -1,9 +1,9 @@
 <!--
     APIM Policy: Base OAuth + Content Safety (Layer 1 Only)
     
-    This policy is the initial state before Camp 4 fixes are applied.
+    This policy is the initial state before Module 4 fixes are applied.
     It includes:
-    - OAuth 2.0 validation (from Camp 1)
+    - OAuth 2.0 validation (from Module 1)
     - Prompt Shields via policy fragment (Layer 1)
     
     What's MISSING (vulnerable):

@@ -1,7 +1,7 @@
-# Camp 1: Configure Secure Server
+# Module 1: Configure Secure Server
 $ErrorActionPreference = 'Stop'
 
-Write-Host "🔧 Camp 1: Configure Secure Server"
+Write-Host "🔧 Module 1: Configure Secure Server"
 Write-Host "==================================="
 
 # Load azd environment variables

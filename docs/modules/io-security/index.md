@@ -10,9 +10,6 @@ hide:
       <h1>I/O Security</h1>
       <p>Defend against injection attacks and data leakage with Azure Functions for advanced input validation and output sanitization.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-security-sm.png" alt="Module 3: I/O Security" />
-    </div>
   </div>
 </div>
 

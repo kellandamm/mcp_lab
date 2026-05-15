@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 3.2: Create Alert Rules
+# Module 4 - Section 3.2: Create Alert Rules
 # =============================================================================
 # Pattern: hidden -> visible -> actionable
 # Transition: VISIBLE -> ACTIONABLE (part 2: automated response)
@@ -29,7 +29,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 3.2: Create Alert Rules${NC}"
+echo -e "${CYAN}  Module 4 - Section 3.2: Create Alert Rules${NC}"
 echo -e "${CYAN}  Pattern: hidden -> visible -> actionable${NC}"
 echo -e "${CYAN}  Making Security ACTIONABLE${NC}"
 echo -e "${CYAN}================================================================${NC}"

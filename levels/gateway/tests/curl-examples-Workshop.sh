@@ -147,7 +147,7 @@ echo ""
 # STEP 3: Call get_weather Tool
 # ------------------------------------------------------------------------------
 # Get weather conditions for a specific location
-# Valid locations: summit, base, camp1
+# Valid locations: summit, base, Module 1
 
 echo "=== Step 3: Call get_weather Tool ==="
 echo "Request: get_weather(location=\"summit\")"

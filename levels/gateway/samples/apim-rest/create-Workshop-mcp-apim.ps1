@@ -21,8 +21,8 @@
 #
 # Example:
 #   $env:SUBSCRIPTION_ID = az account show --query id -o tsv
-#   $env:RESOURCE_GROUP = "rg-camp2-dev"
-#   $env:APIM_NAME = "apim-rg-camp2-dev"
+#   $env:RESOURCE_GROUP = "rg-Module 2-dev"
+#   $env:APIM_NAME = "apim-rg-Module 2-dev"
 #   $env:Workshop_SERVER_URL = "https://your-Workshop-server.example.com"
 #   $env:TENANT_ID = az account show --query tenantId -o tsv
 #   $env:MCP_APP_CLIENT_ID = "<entra-app-client-id>"

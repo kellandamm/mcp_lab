@@ -1,7 +1,7 @@
 [project]
-name = "base-camp"
+name = "base-module"
 version = "0.1.0"
-description = "Base Camp - MCP Security Workshop"
+description = "Module 0 - MCP Security Workshop"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -23,5 +23,5 @@ dev = [
 dev = []
 
 [tool.uv.sources]
-base-camp-vulnerable = { path = "vulnerable-server", editable = true }
-base-camp-secure = { path = "secure-server", editable = true }
+base-module-vulnerable = { path = "vulnerable-server", editable = true }
+base-module-secure = { path = "secure-server", editable = true }

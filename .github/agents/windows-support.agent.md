@@ -7,7 +7,7 @@ You are a Windows support specialist for the Workshop MCP Security Workshop. You
 
 ## Context
 
-This workshop has 5 modules (base-module, camp1–camp4). Each module has Bash scripts (`.sh`) and MkDocs documentation. Windows users need PowerShell equivalents (`.ps1`) and tabbed documentation showing both OS options.
+This workshop has 5 modules (base-module, Module 1–Module 4). Each module has Bash scripts (`.sh`) and MkDocs documentation. Windows users need PowerShell equivalents (`.ps1`) and tabbed documentation showing both OS options.
 
 **Module 2 (`modules/gateway/`) is the completed reference implementation** with 27 `.ps1` files and 5 updated doc files. Use it as the template for all conversions.
 

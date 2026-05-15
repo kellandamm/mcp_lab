@@ -14,7 +14,7 @@ $CLIENT_ID = azd env get-value AZURE_CLIENT_ID 2>$null
 
 if (-not $CLIENT_ID) {
     Write-Host "❌ AZURE_CLIENT_ID not found in azd environment"
-    Write-Host "   Run this from camps/camp1-identity after deploying with azd"
+    Write-Host "   Run this from modules/module1-identity after deploying with azd"
     exit 1
 }
 

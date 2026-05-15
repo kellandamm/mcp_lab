@@ -1,5 +1,5 @@
 [project]
-name = "camp1-prm-demo-client"
+name = "module1-prm-demo-client"
 version = "1.0.0"
 description = "Demo MCP client with PRM support"
 requires-python = ">=3.10"

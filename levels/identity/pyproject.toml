@@ -1,7 +1,7 @@
 [project]
-name = "camp1-identity"
+name = "module1-identity"
 version = "0.1.0"
-description = "Camp 1 - Identity & Authentication with Azure Entra ID"
+description = "Module 1 - Identity & Authentication with Azure Entra ID"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
@@ -23,6 +23,6 @@ dev = [
 dev-dependencies = []
 
 [tool.uv.sources]
-camp1-secure = { path = "secure-server", editable = true }
-camp1-vulnerable = { path = "vulnerable-server", editable = true }
-camp1-prm-demo = { path = "demo-client", editable = true }
+module1-secure = { path = "secure-server", editable = true }
+module1-vulnerable = { path = "vulnerable-server", editable = true }
+module1-prm-demo = { path = "demo-client", editable = true }

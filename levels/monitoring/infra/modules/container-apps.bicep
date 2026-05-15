@@ -19,7 +19,7 @@ param appInsightsConnectionString string
 @description('Sanitize Function URL for PII redaction')
 param sanitizeFunctionUrl string = ''
 
-@description('Enable server-side PII sanitization (default: true for Camp 4)')
+@description('Enable server-side PII sanitization (default: true for Module 4)')
 param sanitizeEnabled bool = true
 
 // Workshop MCP Server - Pre-provisioned with placeholder

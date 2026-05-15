@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 3.1: Deploy Security Workbook (Dashboard)
+# Module 4 - Section 3.1: Deploy Security Workbook (Dashboard)
 # =============================================================================
 # Pattern: hidden → visible → actionable
 # Transition: VISIBLE → ACTIONABLE (part 1: visibility)
@@ -28,7 +28,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 3.1: Deploy Security Workbook${NC}"
+echo -e "${CYAN}  Module 4 - Section 3.1: Deploy Security Workbook${NC}"
 echo -e "${CYAN}  Pattern: hidden → visible → actionable${NC}"
 echo -e "${CYAN}  Transition: VISIBLE → ACTIONABLE${NC}"
 echo -e "${CYAN}================================================================${NC}"

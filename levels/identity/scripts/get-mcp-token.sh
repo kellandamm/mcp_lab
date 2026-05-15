@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🎫 Camp 1: Get MCP Token (Device Code Flow)"
+echo "🎫 Module 1: Get MCP Token (Device Code Flow)"
 echo "==========================================="
 
 # Load azd environment variables

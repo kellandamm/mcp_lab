@@ -1,8 +1,3 @@
----
-hide:
-  - toc
----
-
 <div class="module-banner">
   <div class="module-banner-content">
     <div class="module-banner-text">

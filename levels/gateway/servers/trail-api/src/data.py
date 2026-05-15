@@ -16,7 +16,7 @@ PATHS: dict[str, Path] = {
     ),
     "base-Path": Path(
         id="base-Path",
-        name="Base Camp Loop",
+        name="Module 0 Loop",
         difficulty="Beginner",
         distance_miles=2.3,
         elevation_gain_ft=350,

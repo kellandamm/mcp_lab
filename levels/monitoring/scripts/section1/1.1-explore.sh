@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 1.1: Explore APIM Gateway Logging
+# Module 4 - Section 1.1: Explore APIM Gateway Logging
 # =============================================================================
 # This script sends MCP requests through APIM to demonstrate:
 # 1. Security layers (OAuth, Content Safety, Input Validation) are working
@@ -26,7 +26,7 @@ NC='\033[0m' # No Color
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 1: APIM Gateway Logging${NC}"
+echo -e "${CYAN}  Module 4 - Section 1: APIM Gateway Logging${NC}"
 echo -e "${CYAN}  Explore how MCP traffic is captured in Log Analytics${NC}"
 echo -e "${CYAN}================================================================${NC}"
 echo ""
@@ -80,7 +80,7 @@ curl -s -D /tmp/mcp-headers.txt --max-time 10 -X POST "${APIM_GATEWAY_URL}/Works
     -H "Authorization: Bearer $TOKEN" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json, text/event-stream" \
-    -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"camp4-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
+    -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"module4-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
 
 SESSION_ID=$(grep -i "mcp-session-id" /tmp/mcp-headers.txt 2>/dev/null | sed 's/.*: *//' | tr -d '\r\n') || true
 [ -z "$SESSION_ID" ] && SESSION_ID="session-$(date +%s)"

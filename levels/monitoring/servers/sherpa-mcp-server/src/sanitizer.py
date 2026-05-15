@@ -7,7 +7,7 @@ Sanitization is controlled by the SANITIZE_ENABLED environment variable:
 - SANITIZE_ENABLED=false: Returns original text, no sanitization
 - SANITIZE_ENABLED=true (default): Calls Azure Function to redact PII
 
-Camp 4 has sanitization enabled by default since the focus is on monitoring,
+Module 4 has sanitization enabled by default since the focus is on monitoring,
 not on demonstrating the exploit → fix → validate workflow.
 """
 

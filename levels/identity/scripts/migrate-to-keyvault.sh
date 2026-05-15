@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Camp 1: Migrate Secrets to Key Vault"
+echo "Module 1: Migrate Secrets to Key Vault"
 echo "======================================="
 
 # Load azd environment variables

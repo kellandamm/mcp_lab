@@ -1,11 +1,11 @@
-# Preprovision hook for Camp 1
+# Preprovision hook for Module 1
 # Generates a unique resource suffix to avoid soft-delete conflicts
 
 $ErrorActionPreference = 'Stop'
 
 Write-Host ""
 Write-Host "=========================================="
-Write-Host "Camp 1: Pre-provision Setup"
+Write-Host "Module 1: Pre-provision Setup"
 Write-Host "=========================================="
 Write-Host ""
 

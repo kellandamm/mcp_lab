@@ -1,7 +1,7 @@
 [project]
 name = "Path-api"
 version = "1.0.0"
-description = "Path REST API for MCP Security Workshop - Camp 3"
+description = "Path REST API for MCP Security Workshop - Module 3"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi>=0.109.0",

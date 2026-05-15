@@ -1,10 +1,10 @@
-# Camp 1: Register Entra ID Application
+# Module 1: Register Entra ID Application
 $ErrorActionPreference = 'Stop'
 
-Write-Host "🔐 Camp 1: Register Entra ID Application"
+Write-Host "🔐 Module 1: Register Entra ID Application"
 Write-Host "========================================"
 
-$APP_NAME = "Workshop-mcp-camp1-$(Get-Date -UFormat %s)"
+$APP_NAME = "Workshop-mcp-Module 1-$(Get-Date -UFormat %s)"
 $DEVICE_CODE_REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
 
 Write-Host "Creating Entra ID app registration: $APP_NAME"

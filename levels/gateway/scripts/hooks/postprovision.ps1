@@ -1,4 +1,4 @@
-# Postprovision hook for Camp 2
+# Postprovision hook for Module 2
 # Called automatically by azd after infrastructure deployment
 
 $ErrorActionPreference = 'Stop'

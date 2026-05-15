@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 2.2: Switch to Function v2 with Structured Logging
+# Module 4 - Section 2.2: Switch to Function v2 with Structured Logging
 # =============================================================================
 # Pattern: hidden → visible → actionable
 # Transition: HIDDEN → VISIBLE
@@ -31,7 +31,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 2.2: Enable Structured Logging${NC}"
+echo -e "${CYAN}  Module 4 - Section 2.2: Enable Structured Logging${NC}"
 echo -e "${CYAN}  Pattern: hidden → visible → actionable${NC}"
 echo -e "${CYAN}  Transition: HIDDEN → VISIBLE${NC}"
 echo -e "${CYAN}================================================================${NC}"
@@ -159,7 +159,7 @@ if [ -n "$APIM_GATEWAY_URL" ] && [ -n "$MCP_APP_CLIENT_ID" ]; then
             -H "Authorization: Bearer $TOKEN" \
             -H "Content-Type: application/json" \
             -H "Accept: application/json, text/event-stream" \
-            -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"camp4-v2-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
+            -d '{"jsonrpc":"2.0","method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"module4-v2-test","version":"1.0"}},"id":1}' > /dev/null 2>&1 || true
 
         SESSION_ID=$(grep -i "mcp-session-id" /tmp/mcp-headers.txt 2>/dev/null | sed 's/.*: *//' | tr -d '\r\n') || true
         [ -z "$SESSION_ID" ] && SESSION_ID="session-$(date +%s)"

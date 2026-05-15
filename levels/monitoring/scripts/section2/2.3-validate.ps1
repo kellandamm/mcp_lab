@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 2.3: Validate Structured Logging
+# Module 4 - Section 2.3: Validate Structured Logging
 # =============================================================================
 # Pattern: hidden → visible → actionable
 # Current state: VISIBLE (verifying structured logs)
@@ -9,7 +9,7 @@ $ErrorActionPreference = 'Stop'
 
 Set-Location (Join-Path $PSScriptRoot "..\..")
 
-# Ensure correct azd environment (fixes session bleed-over from other camps)
+# Ensure correct azd environment (fixes session bleed-over from other modules)
 $configFile = Join-Path (Get-Location) ".azure\config.json"
 if (Test-Path $configFile) {
     $localDefault = (Get-Content $configFile | ConvertFrom-Json).defaultEnvironment
@@ -23,7 +23,7 @@ if (Test-Path $configFile) {
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 2.3: Validate Structured Logging" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 2.3: Validate Structured Logging" -ForegroundColor Cyan
 Write-Host "  Pattern: hidden -> visible -> actionable" -ForegroundColor Cyan
 Write-Host "  Current State: VISIBLE" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan

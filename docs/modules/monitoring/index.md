@@ -10,9 +10,6 @@ hide:
       <h1>Monitoring & Telemetry</h1>
       <p>Prove your defenses work with Log Analytics, Application Insights, dashboards, and automated alerting — because security without observability is blind.</p>
     </div>
-    <div class="module-banner-image">
-      <img src="../../images/Workshop-monitoring-sm.png" alt="Module 4: Monitoring" />
-    </div>
   </div>
 </div>
 

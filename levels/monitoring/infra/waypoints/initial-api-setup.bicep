@@ -1,14 +1,14 @@
 /*
-  Initial APIM API Setup for Camp 4
+  Initial APIM API Setup for Module 4
   
-  This follows the Camp 2 pattern:
+  This follows the Module 2 pattern:
   1. Workshop MCP Server - Native MCP type API (passthrough to Container App)
   2. Path REST API - HTTP API with operations (backend for Path MCP)
   3. Path MCP Server - MCP API that wraps Path REST API operations as tools
   4. Content Safety backend - For Layer 1 protection
   5. Security Function - For Layer 2 protection
   
-  Security (Camp 4 starts with full security from Camp 3):
+  Security (Module 4 starts with full security from Module 3):
   - OAuth validation on MCP APIs (Workshop MCP, Path MCP)
   - Layer 1: Content Safety on MCP APIs
   - Layer 2: Security Function (input validation + output sanitization)

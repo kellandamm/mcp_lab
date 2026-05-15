@@ -1,4 +1,4 @@
-# Camp 3: Get MCP Token for APIM
+# Module 3: Get MCP Token for APIM
 param(
     [switch]$Pkce,
     [switch]$Json,
@@ -25,7 +25,7 @@ if ($Help) {
     exit 0
 }
 
-Write-Host "🎫 Camp 3: Get MCP Token for APIM"
+Write-Host "🎫 Module 3: Get MCP Token for APIM"
 Write-Host "================================="
 Write-Host ""
 

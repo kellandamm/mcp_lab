@@ -1,6 +1,6 @@
 #!/bin/bash
 # =============================================================================
-# Camp 4 - Section 2.3: Validate Structured Logging
+# Module 4 - Section 2.3: Validate Structured Logging
 # =============================================================================
 # Pattern: hidden → visible → actionable
 # Current state: VISIBLE (verifying structured logs)
@@ -24,7 +24,7 @@ NC='\033[0m'
 
 echo ""
 echo -e "${CYAN}================================================================${NC}"
-echo -e "${CYAN}  Camp 4 - Section 2.3: Validate Structured Logging${NC}"
+echo -e "${CYAN}  Module 4 - Section 2.3: Validate Structured Logging${NC}"
 echo -e "${CYAN}  Pattern: hidden → visible → actionable${NC}"
 echo -e "${CYAN}  Current State: VISIBLE${NC}"
 echo -e "${CYAN}================================================================${NC}"

@@ -1,11 +1,11 @@
 [project]
-name = "base-camp-vulnerable"
+name = "base-module-vulnerable"
 version = "0.1.0"
-description = "Base Camp - Vulnerable MCP Server (for educational purposes)"
+description = "Module 0 - Vulnerable MCP Server (for educational purposes)"
 readme = "README.md"
 requires-python = ">=3.10"
 
-# Dependencies managed at camp level (../pyproject.toml)
+# Dependencies managed at module level (../pyproject.toml)
 # This package is installed as editable via: uv sync
 
 [build-system]

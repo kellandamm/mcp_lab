@@ -1,7 +1,7 @@
 [project]
-name = "camp3-io-security"
+name = "io-security"
 version = "0.1.0"
-description = "Camp 3 - I/O Security for MCP Servers"
+description = "Module 3 - I/O Security for MCP Servers"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [

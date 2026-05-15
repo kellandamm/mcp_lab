@@ -1,5 +1,5 @@
 # ==============================================================================
-# Camp 3: Get MCP Token (Device Code Flow)
+# Module 3: Get MCP Token (Device Code Flow)
 # ==============================================================================
 # Gets an OAuth token for authenticating with the PATHS MCP server through APIM.
 # Use this token in the PATHS-mcp.http file or with curl commands.
@@ -10,7 +10,7 @@ $ErrorActionPreference = 'Stop'
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 Set-Location (Join-Path $ScriptDir "..")
 
-Write-Host "🎫 Camp 3: Get MCP Token (Device Code Flow)"
+Write-Host "🎫 Module 3: Get MCP Token (Device Code Flow)"
 Write-Host "==========================================="
 
 # Load azd environment variables

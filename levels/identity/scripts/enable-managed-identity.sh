@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Camp 1: Enable Managed Identity"
+echo "Module 1: Enable Managed Identity"
 echo "=================================="
 
 # Load azd environment variables

@@ -14,12 +14,12 @@ var effectiveSuffix = !empty(resourceSuffix) ? resourceSuffix : substring(unique
 
 // Get the existing Log Analytics workspace
 // The workspace was created during initial azd provision
-var prefix = 'camp4-${effectiveSuffix}'
+var prefix = 'Module 4-${effectiveSuffix}'
 
 // Tags for resources
 var tags = {
   'azd-env-name': resourceGroup().name
-  camp: 'camp4-monitoring'
+  module: 'monitoring'
   waypoint: '3.1-deploy-alerts'
 }
 

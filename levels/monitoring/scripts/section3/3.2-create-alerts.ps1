@@ -1,5 +1,5 @@
 # =============================================================================
-# Camp 4 - Section 3.2: Create Alert Rules
+# Module 4 - Section 3.2: Create Alert Rules
 # =============================================================================
 # Pattern: hidden -> visible -> actionable
 # Transition: VISIBLE -> ACTIONABLE (part 2: automated response)
@@ -11,7 +11,7 @@ Set-Location (Join-Path $PSScriptRoot "..\..")
 
 Write-Host ""
 Write-Host "================================================================" -ForegroundColor Cyan
-Write-Host "  Camp 4 - Section 3.2: Create Alert Rules" -ForegroundColor Cyan
+Write-Host "  Module 4 - Section 3.2: Create Alert Rules" -ForegroundColor Cyan
 Write-Host "  Pattern: hidden -> visible -> actionable" -ForegroundColor Cyan
 Write-Host "  Making Security ACTIONABLE" -ForegroundColor Cyan
 Write-Host "================================================================" -ForegroundColor Cyan

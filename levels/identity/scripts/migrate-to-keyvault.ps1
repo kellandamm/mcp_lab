@@ -1,7 +1,7 @@
-# Camp 1: Migrate Secrets to Key Vault
+# Module 1: Migrate Secrets to Key Vault
 $ErrorActionPreference = 'Stop'
 
-Write-Host "Camp 1: Migrate Secrets to Key Vault"
+Write-Host "Module 1: Migrate Secrets to Key Vault"
 Write-Host "======================================="
 
 # Load azd environment variables
