@@ -4,13 +4,13 @@ Thank you for your interest in improving this workshop!
 
 ## Quick Links
 
-- **📚 Workshop:** [azure-samples.github.io/Workshop](https://azure-samples.github.io/Workshop/)
+- **📚 Workshop:** [Local Workshop Docs](docs/index.md)
 - **🔒 Security Guide:** [microsoft.github.io/mcp-azure-security-guide](https://microsoft.github.io/mcp-azure-security-guide/)
 
 ## Repository Structure
 
 ```
-Workshop/
+mcp_lab/
 ├── modules/                    # Workshop modules
 │   ├── base-module/            # Local-only, MCP fundamentals
 │   ├── module1-identity/     # Azure: OAuth, Managed Identity
@@ -66,7 +66,7 @@ mkdocs serve
 
 ## Questions?
 
-Open an [issue](https://github.com/Azure-Samples/Workshop/issues).
+ Open an [issue](https://github.com/kellandamm/mcp_lab/issues).
 
 ---
 

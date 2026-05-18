@@ -1,6 +1,6 @@
 # Module 1: Identity & Access Management
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 1: Identity & Access Management](https://azure-samples.github.io/Workshop/modules/module1-identity/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 1: Identity & Access Management](../../docs/modules/module1-identity.md)**
 
 ---
 
@@ -37,7 +37,7 @@ cd modules/module1-identity
 azd up
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/module1-identity/)** for the exploit → fix → validate walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/module1-identity.md)** for the exploit → fix → validate walkthrough.
 
 ## Security Transformation
 

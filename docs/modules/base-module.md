@@ -82,8 +82,8 @@ Before starting Module 0, ensure you have the required tools installed.
 ### Clone the Workshop Repository
 
 ```bash
-git clone https://github.com/Azure-Samples/Workshop.git
-cd Workshop
+git clone https://github.com/kellandamm/mcp_lab.git
+cd mcp_lab
 ```
 
 ### Setup Python Environment for Module 0

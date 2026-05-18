@@ -1,6 +1,6 @@
 # Module 0: Understanding the Mountain
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 0](https://azure-samples.github.io/Workshop/modules/base-module/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 0](../../docs/modules/base-module.md)**
 
 ---
 
@@ -36,7 +36,7 @@ cd modules/base-module
 uv sync
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/base-module/)** for the exploit → fix → validate walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/base-module.md)** for the exploit → fix → validate walkthrough.
 
 ## Project Structure
 

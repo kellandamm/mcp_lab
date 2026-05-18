@@ -67,8 +67,8 @@ If you haven't installed these tools yet, visit the [Prerequisites page](../prer
 If you haven't already cloned the repository (from Module 0), do so now:
 
 ```bash
-git clone https://github.com/Azure-Samples/Workshop.git
-cd Workshop
+git clone https://github.com/kellandamm/mcp_lab.git
+cd mcp_lab
 ```
 
 Navigate to the Module 1 directory:
@@ -433,7 +433,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
     │  │   Container App  │         │   Azure Portal   │                  │
     │  │                  │         │                  │                  │
     │  │  REQUIRED_TOKEN= │◄────────│     Visible to   │                  │
-    │  │  camp1_demo_...  │         │     anyone with  │                  │
+    │  │  module1_demo_...  │         │     anyone with  │                  │
     │  │  (env var)       │         │     read access  │                  │
     │  └──────────────────┘         └──────────────────┘                  │
     │                                                                     │
@@ -1373,7 +1373,7 @@ Module 1 follows six waypoints, each building on the previous one. Click each wa
             - **Token exchange** with client authentication
             - **MCP JSON-RPC requests** with Bearer token
             
-            See the [module1-identity/demo-client directory](https://github.com/Azure-Samples/Workshop/tree/main/modules/module1-identity/demo-client) on GitHub for the complete implementation with `README.md` and full source code.            
+            See the [module1-identity/demo-client directory](https://github.com/kellandamm/mcp_lab/tree/main/modules/module1-identity/demo-client) on GitHub for the complete implementation with `README.md` and full source code.            
 
     ---
 

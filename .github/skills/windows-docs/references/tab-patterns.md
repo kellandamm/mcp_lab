@@ -228,7 +228,7 @@ azd env get-value SINGLE_VAR_NAME
 az account show
 az login
 git clone https://github.com/...
-cd Workshop/modules/gateway
+cd mcp_lab/modules/gateway
 docker --version
 ```
 

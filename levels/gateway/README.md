@@ -1,6 +1,6 @@
 # Module 2: Gateway Security
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 2: Gateway Security](https://azure-samples.github.io/Workshop/modules/gateway/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 2: Gateway Security](../../docs/modules/gateway/index.md)**
 
 ---
 
@@ -39,7 +39,7 @@ cd modules/gateway
 azd up
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/gateway/)** for the exploit → fix → validate walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/gateway/index.md)** for the exploit → fix → validate walkthrough.
 
 ## Architecture
 

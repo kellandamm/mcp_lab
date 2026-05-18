@@ -1,6 +1,6 @@
 # Module 4: Monitoring & Telemetry
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 4: Monitoring & Telemetry](https://azure-samples.github.io/Workshop/modules/monitoring/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 4: Monitoring & Telemetry](../../docs/modules/monitoring/index.md)**
 
 ---
 
@@ -36,7 +36,7 @@ cd modules/monitoring
 azd up
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/monitoring/)** for the hidden → visible → actionable walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/monitoring/index.md)** for the hidden → visible → actionable walkthrough.
 
 ## Architecture
 
@@ -159,5 +159,5 @@ azd down --force --purge
 
 🏔️ **Congratulations!** You've reached the summit. Your MCP servers are now secure, monitored, and observable.
 
-- Review the **[Summit page](https://azure-samples.github.io/Workshop/modules/summit/)** for a recap of your journey
+- Review the **[Summit page](../../docs/modules/summit.md)** for a recap of your journey
 - Apply these patterns to your own MCP deployments

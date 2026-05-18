@@ -80,8 +80,8 @@ Before starting Module 3, ensure you have the required tools installed.
 If you haven't already cloned the repository (from a previous module), skip to the next step.
 
 ```bash
-git clone https://github.com/Azure-Samples/Workshop.git
-cd Workshop
+git clone https://github.com/kellandamm/mcp_lab.git
+cd mcp_lab
 ```
 
 Navigate to the Module 3 directory:

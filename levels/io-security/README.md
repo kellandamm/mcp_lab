@@ -1,6 +1,6 @@
 # Module 3: I/O Security
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 3: I/O Security](https://azure-samples.github.io/Workshop/modules/io-security/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 3: I/O Security](../../docs/modules/io-security/index.md)**
 
 ---
 
@@ -37,7 +37,7 @@ cd modules/io-security
 azd up
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/io-security/)** for the exploit → fix → validate walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/io-security/index.md)** for the exploit → fix → validate walkthrough.
 
 ## Architecture
 

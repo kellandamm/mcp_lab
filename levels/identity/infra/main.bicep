@@ -25,7 +25,7 @@ var tags = {
 module logAnalytics 'modules/log-analytics.bicep' = {
   name: 'log-analytics'
   params: {
-    name: '${abbrs.logAnalytics}Workshop-Module 1-${suffix}'
+    name: '${abbrs.logAnalytics}Workshop-module1-${suffix}'
     location: location
     tags: tags
   }
@@ -35,7 +35,7 @@ module logAnalytics 'modules/log-analytics.bicep' = {
 module identity 'modules/managed-identity.bicep' = {
   name: 'managed-identity'
   params: {
-    name: '${abbrs.managedIdentity}Workshop-Module 1-${suffix}'
+    name: '${abbrs.managedIdentity}Workshop-module1-${suffix}'
     location: location
     tags: tags
   }
@@ -45,7 +45,7 @@ module identity 'modules/managed-identity.bicep' = {
 module keyVault 'modules/keyvault.bicep' = {
   name: 'keyvault'
   params: {
-    name: '${abbrs.keyVault}Workshop-Module 1-${suffix}'
+    name: '${abbrs.keyVault}Workshop-module1-${suffix}'
     location: location
     tags: tags
     principalId: identity.outputs.principalId
@@ -56,7 +56,7 @@ module keyVault 'modules/keyvault.bicep' = {
 module containerRegistry 'modules/container-registry.bicep' = {
   name: 'container-registry'
   params: {
-    name: '${abbrs.containerRegistry}Workshopcamp1${suffix}'
+    name: '${abbrs.containerRegistry}Workshopmodule1${suffix}'
     location: location
     tags: tags
     principalId: identity.outputs.principalId
@@ -67,7 +67,7 @@ module containerRegistry 'modules/container-registry.bicep' = {
 module containerAppsEnv 'modules/container-apps-env.bicep' = {
   name: 'container-apps-env'
   params: {
-    name: '${abbrs.containerAppsEnv}Workshop-Module 1-${suffix}'
+    name: '${abbrs.containerAppsEnv}Workshop-module1-${suffix}'
     location: location
     tags: tags
     logAnalyticsId: logAnalytics.outputs.id

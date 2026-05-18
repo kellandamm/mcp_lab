@@ -1,9 +1,9 @@
 site_name: MCP Security Workshop
-site_url: https://azure-samples.github.io/Workshop
+site_url: https://kellandamm.github.io/mcp_lab
 site_description: A Workshop's Guide to Securing Model Context Protocol Servers in Azure
 site_author: Microsoft Azure Samples
-repo_name: Azure-Samples/Workshop
-repo_url: https://github.com/Azure-Samples/Workshop
+repo_name: kellandamm/mcp_lab
+repo_url: https://github.com/kellandamm/mcp_lab
 edit_uri: edit/main/
 
 # Copyright
@@ -112,7 +112,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/Azure-Samples/Workshop
+      link: https://github.com/kellandamm/mcp_lab
     - icon: fontawesome/brands/microsoft
       link: https://azure.microsoft.com
   analytics:

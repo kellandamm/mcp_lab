@@ -1,6 +1,6 @@
 # Module 5: Supply Chain Security
 
-> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 5: Supply Chain Security](https://azure-samples.github.io/Workshop/modules/module5-supply-chain/)**
+> **📚 Workshop Guide:** For the full step-by-step workshop, visit: **[Module 5: Supply Chain Security](../../docs/modules/module5-supply-chain.md)**
 
 ---
 
@@ -44,7 +44,7 @@ uv sync
 uv run pip-audit
 ```
 
-Then follow the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/module5-supply-chain/)** for the full exploit → fix → validate walkthrough.
+Then follow the **[Workshop Guide](../../docs/modules/module5-supply-chain.md)** for the full exploit → fix → validate walkthrough.
 
 ## Project Structure
 

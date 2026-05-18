@@ -22,7 +22,7 @@ hide:
 !!! tip "Skip Local Setup — Use GitHub Codespaces"
     Open this workshop in a pre-configured cloud environment with one click. No local installs required.
 
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/Workshop)
+    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/kellandamm/mcp_lab)
 
     The Codespaces environment includes Python 3.11, Node.js 22, Azure CLI, azd, uv, and all recommended VS Code extensions pre-installed. Module 0 dependencies are installed automatically on startup.
 
@@ -219,4 +219,4 @@ Verify: `func --version` — [Install guide](https://learn.microsoft.com/azure/a
 
 ---
 
-**Questions or issues?** [Open an issue](https://github.com/Azure-Samples/Workshop/issues) on GitHub.
+**Questions or issues?** [Open an issue](https://github.com/kellandamm/mcp_lab/issues) on GitHub.

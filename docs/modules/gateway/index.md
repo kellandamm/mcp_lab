@@ -56,10 +56,10 @@ This module follows the same **"vulnerable → exploit → fix → validate"** p
 
 ```bash
 # Clone the repo (skip if you already have it)
-git clone https://github.com/Azure-Samples/Workshop.git
+git clone https://github.com/kellandamm/mcp_lab.git
 
 # Navigate to Module 2
-cd Workshop/modules/gateway
+cd mcp_lab/modules/gateway
 
 # Provision infrastructure (~10-15 minutes)
 azd provision

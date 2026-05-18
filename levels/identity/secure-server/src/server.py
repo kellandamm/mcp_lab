@@ -234,7 +234,7 @@ async def prm_endpoint(request):
         "token_formats_supported": ["jwt"],
         
         # Optional: Documentation URL for developers
-        "service_documentation": "https://azure-samples.github.io/Workshop/modules/module1-identity/"
+        "service_documentation": "https://github.com/kellandamm/mcp_lab/blob/main/docs/modules/module1-identity.md"
     })
 
 # ============================================================================

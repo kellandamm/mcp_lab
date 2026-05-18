@@ -127,8 +127,8 @@ From clone to running lab in under ten minutes.
 **1. Clone the repository**
 
 ```bash
-git clone https://github.com/Azure-Samples/Workshop.git
-cd Workshop
+git clone https://github.com/kellandamm/mcp_lab.git
+cd mcp_lab
 ```
 
 **2. Install dependencies & verify**

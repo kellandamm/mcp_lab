@@ -2,9 +2,9 @@
 
 *A Workshop's Guide to Securing Model Context Protocol Servers in Azure*
 
-**🚀 [Start the Workshop →](https://azure-samples.github.io/Workshop/)**
+**🚀 [Start the Workshop →](docs/index.md)**
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Azure-Samples/Workshop)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/kellandamm/mcp_lab)
 
 
 ## Overview
@@ -49,8 +49,8 @@ Throughout the workshop, we reference specific sections for deeper dives on each
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Azure-Samples/Workshop.git
-   cd Workshop
+   git clone https://github.com/kellandamm/mcp_lab.git
+   cd mcp_lab
    ```
 
 2. **Start at Module 0:**
@@ -59,7 +59,7 @@ Throughout the workshop, we reference specific sections for deeper dives on each
    ```
 
 3. **Follow the guide:**  
-   Visit **[azure-samples.github.io/Workshop](https://azure-samples.github.io/Workshop/)** for step-by-step instructions following our proven "Deploy → Exploit → Fix → Validate" pattern.
+   Visit the **[Workshop Guide](docs/index.md)** for step-by-step instructions following our proven "Deploy → Exploit → Fix → Validate" pattern.
 
 ## Workshop Methodology
 

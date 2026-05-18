@@ -126,4 +126,4 @@ Before approving any MCP server dependency for use in this workshop or in produc
 
 ## Next Steps
 
-Return to the **[Workshop Guide](https://azure-samples.github.io/Workshop/modules/module5-supply-chain/)** to configure Dependabot and GitHub Advanced Security for ongoing protection.
+Return to the **[Workshop Guide](../../../docs/modules/module5-supply-chain.md)** to configure Dependabot and GitHub Advanced Security for ongoing protection.

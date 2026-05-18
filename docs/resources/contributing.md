@@ -18,14 +18,14 @@ hide:
 
 ## Quick Links
 
-:material-book-open-variant: [Workshop site](https://azure-samples.github.io/Workshop/) · :material-shield-lock: [OWASP MCP Azure Security Guide](https://microsoft.github.io/mcp-azure-security-guide/) · :material-github: [Open an issue](https://github.com/Azure-Samples/Workshop/issues)
+:material-book-open-variant: [Workshop site](../index.md) · :material-shield-lock: [OWASP MCP Azure Security Guide](https://microsoft.github.io/mcp-azure-security-guide/) · :material-github: [Open an issue](https://github.com/kellandamm/mcp_lab/issues)
 
 ---
 
 ## Repository Structure
 
 ```
-Workshop/
+mcp_lab/
 ├── modules/                       # Workshop modules
 │   ├── base-module/               # Local-only MCP fundamentals
 │   ├── module1-identity/        # OAuth, Managed Identity, Key Vault
